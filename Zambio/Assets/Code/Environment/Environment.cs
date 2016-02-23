@@ -6,9 +6,9 @@ public class Environment : MonoBehaviour
 
     private Light Sun;
     public int DayLength; // For Testing
-    public int DawnStart = 5;
+    public int DawnStart = 4;
     public int DayStart = 8;
-    public int DuskStart = 17;
+    public int DuskStart = 16;
     public int NightStart = 20;
 
     private static float staticIntensity = 0.6f;
@@ -23,7 +23,7 @@ public class Environment : MonoBehaviour
     public Color initDuskColor;
     public Color initNightColor;
 
-    public float initTime = 8;  // This is what time it is when our game starts
+    public float initTime = 6;  // This is what time it is when our game starts
                                   //  This shouldn't change, but make it public to tweak
 
     private int numDays = 100;
@@ -38,7 +38,7 @@ public class Environment : MonoBehaviour
     void Start()
     {
         initSunRotation = Quaternion.Euler(Vector3.zero);
-        finalSunRotation = Quaternion.Euler(new Vector3(359.8f, 0f, 0f));
+        finalSunRotation = Quaternion.Euler(new Vector3(359.9f, 0f, 0f));
 
         SunRotationAxis = initSunRotation * Vector3.right;
         Sun = GetComponentInChildren<Light>();
