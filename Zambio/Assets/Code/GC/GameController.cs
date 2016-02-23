@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
+// Worker GameController
 public class GameController : MonoBehaviour
 {
     GameData data;
     GameControllerSingleton gc;
+    private bool UIenabled = false;
 
     void Awake()
     {
@@ -31,6 +34,20 @@ public class GameController : MonoBehaviour
     void Update()
     {
         gc.Update();
+        // UI Toggle
+        if (Input.GetButtonDown("toggleUI"))
+        {
+            if (UIenabled)
+            {
+                SceneManager.UnloadScene("UI");
+                UIenabled = false;
+            }
+            else
+            {
+                SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+                UIenabled = true;
+            }
+        }
     }
 }
 
@@ -46,7 +63,7 @@ class GameData
         STATE_DEMO,              // We are in Demo mode
         STATE_WAVE_IN_PROGRESS,  // There is a wave in progress
         STATE_CHILL              // We are between waves, no enemies to worry about
-            // More States
+                                 // More States
     };
     // FSM to handle with game flow
     public GameState State { get; private set; }

@@ -11,10 +11,12 @@ public class Environment : MonoBehaviour
     public int DuskStart = 17;
     public int NightStart = 20;
 
-    public float initDawnIntensity  = 0.6f;  // FinalNightIntensity
-    public float initDayIntensity   = 0.8f;  // FinalDawnIntensity
-    public float initDuskIntensity  = 0.6f;  // Final Day Intensity
-    public float initNightIntensity = 0.6f; // FinalDuskIntensity
+    private static float staticIntensity = 0.6f;
+
+    public float initDawnIntensity  = staticIntensity;  // FinalNightIntensity
+    public float initDayIntensity   = staticIntensity;  // FinalDawnIntensity
+    public float initDuskIntensity  = staticIntensity;  // Final Day Intensity
+    public float initNightIntensity = staticIntensity; // FinalDuskIntensity
 
     public Color initDawnColor;
     public Color initDayColor;
@@ -37,6 +39,7 @@ public class Environment : MonoBehaviour
     {
         initSunRotation = Quaternion.Euler(Vector3.zero);
         finalSunRotation = Quaternion.Euler(new Vector3(359.8f, 0f, 0f));
+
         SunRotationAxis = initSunRotation * Vector3.right;
         Sun = GetComponentInChildren<Light>();
         Sun.intensity = initDawnIntensity;

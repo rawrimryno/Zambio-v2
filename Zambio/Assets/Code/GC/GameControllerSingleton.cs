@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// Maintainer/Listener GameController
 public class GameControllerSingleton : ScriptableObject {
     private static GameControllerSingleton _instance;
 	// Use this for initialization
