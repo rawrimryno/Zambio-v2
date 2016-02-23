@@ -61,10 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Ammo\AmmoScript.cs" />
+    <Compile Include="Assets\Code\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Code\Environment\Environment.cs" />
     <Compile Include="Assets\Code\FileWriter\FileWriter.cs" />
     <Compile Include="Assets\Code\GC\GameController.cs" />
     <Compile Include="Assets\Code\GC\GameControllerSingleton.cs" />
+    <Compile Include="Assets\Code\NavAgent\NavAgentGoToTransform.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
     <Compile Include="Assets\Code\UI\HealthPanel.cs" />
     <Compile Include="Assets\Code\UI\InfoTab.cs" />
