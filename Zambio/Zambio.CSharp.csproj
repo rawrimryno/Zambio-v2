@@ -68,6 +68,9 @@
     <Compile Include="Assets\Code\GC\GameController.cs" />
     <Compile Include="Assets\Code\GC\GameControllerSingleton.cs" />
     <Compile Include="Assets\Code\NavAgent\NavAgentGoToTransform.cs" />
+    <Compile Include="Assets\Code\Player\MouseLook.cs" />
+    <Compile Include="Assets\Code\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Code\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
     <Compile Include="Assets\Code\UI\HealthPanel.cs" />
     <Compile Include="Assets\Code\UI\InfoTab.cs" />
