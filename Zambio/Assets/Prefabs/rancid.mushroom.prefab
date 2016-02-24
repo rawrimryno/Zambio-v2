@@ -91,6 +91,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403298}
+  - 122: {fileID: 12290306}
   m_Layer: 0
   m_Name: rancid.mushroom
   m_TagString: Mushroom
@@ -307,6 +308,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144030}
   m_Mesh: {fileID: 4300004, guid: ccf6d8464268f7c408428fbda0c34b76, type: 3}
+--- !u!122 &12290306
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196212}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190335
+  m_Size: 1.43
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -317,6 +329,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.rgba
+      value: 4278190335
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
