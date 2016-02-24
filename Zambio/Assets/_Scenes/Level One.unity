@@ -113,20 +113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8284b0d34e790ca478b3c47f3c29ffb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayLength: 10
-  DawnStart: 4
-  DayStart: 8
-  DuskStart: 16
-  NightStart: 20
+  DayLength: 120
   initDawnIntensity: 0.6
-  initDayIntensity: 0.6
+  initDayIntensity: 0.8
   initDuskIntensity: 0.6
-  initNightIntensity: 0.6
-  initDawnColor: {r: 0, g: 0, b: 0, a: 0}
-  initDayColor: {r: 0, g: 0, b: 0, a: 0}
-  initDuskColor: {r: 0, g: 0, b: 0, a: 0}
-  initNightColor: {r: 0, g: 0, b: 0, a: 0}
-  initTime: 7
+  initNightIntensity: 0.4
+  initDawnColor: {r: 0.627451, g: 0.28627452, b: 0.48235294, a: 0}
+  initDayColor: {r: 0.5294118, g: 0.80784315, b: 0.92156863, a: 0}
+  initDuskColor: {r: 0.5647059, g: 0.3764706, b: 0.5647059, a: 0}
+  initNightColor: {r: 0.3529412, g: 0.23529412, b: 0.3529412, a: 0}
 --- !u!114 &63225776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,7 +1015,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
   m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
