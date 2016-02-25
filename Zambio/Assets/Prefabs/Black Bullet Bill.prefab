@@ -164,6 +164,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480216}
+  - 114: {fileID: 11419556}
   m_Layer: 0
   m_Name: Black Bullet Bill
   m_TagString: Untagged
@@ -930,6 +931,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138752}
   m_Mesh: {fileID: 4300010, guid: 66000a1c8e8cf4c7f8c85f61a56065f9, type: 3}
+--- !u!114 &11419556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcedbc8fa6f42a47a45017e790e0a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinFactor: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

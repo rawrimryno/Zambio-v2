@@ -40,6 +40,7 @@ public class AmmoScript : MonoBehaviour {
     {
         if ( cInfo.transform.CompareTag("Enemy"))
         {
+            cInfo.gameObject.SetActive(false);
             Destroy(cInfo.gameObject);
         }
     }

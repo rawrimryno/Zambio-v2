@@ -60,6 +60,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407982}
   - 54: {fileID: 5407802}
+  - 114: {fileID: 11400954}
   m_Layer: 0
   m_Name: Green.Shell
   m_TagString: Shell
@@ -299,6 +300,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300004, guid: c725057c4743a0540aa1e35ade09210d, type: 3}
+--- !u!114 &11400954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcedbc8fa6f42a47a45017e790e0a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinFactor: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
