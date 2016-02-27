@@ -10,61 +10,63 @@ public class HealthPanel : MonoBehaviour {
     public int health;
     public Image[] ammo;
 
-    private int bullet;  
+    public int bullet;  
     private float coolDownCur;
 
 	void Start () {
         coolDownCur = coolDownBase;
         changeAmmo(1);
+        coolDownCur = 0.5f;
+        bullet = 1;
 	}
 	
 	void Update () {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Fire1"))
         {
             coolDown();
         }
-        if (Input.GetKeyDown("c"))
-        {
-            setHearts();
-        }
-        if (Input.GetKeyDown("y"))
-        {
-            health++;
-            setHearts();
-        }
-        if (Input.GetKeyDown("t"))
-        {
-            health--;
-            setHearts();
-        }
-        if (Input.GetKeyDown("1"))
-        {
-            changeAmmo(1);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            changeAmmo(2);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            changeAmmo(3);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            changeAmmo(4);
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            changeAmmo(5);
-        }
-        if (Input.GetKeyDown("q"))
-        {
-            changeAmmo(--bullet);
-        }
-        if (Input.GetKeyDown("e"))
-        {
-            changeAmmo(++bullet);
-        }
+        //if (Input.GetKeyDown("c"))
+        //{
+        //    setHearts();
+        //}
+        //if (Input.GetKeyDown("y"))
+        //{
+        //    health++;
+        //    setHearts();
+        //}
+        //if (Input.GetKeyDown("t"))
+        //{
+        //    health--;
+        //    setHearts();
+        //}
+        //if (Input.GetKeyDown("1"))
+        //{
+        //    changeAmmo(1);
+        //}
+        //if (Input.GetKeyDown("2"))
+        //{
+        //    changeAmmo(2);
+        //}
+        //if (Input.GetKeyDown("3"))
+        //{
+        //    changeAmmo(3);
+        //}
+        //if (Input.GetKeyDown("4"))
+        //{
+        //    changeAmmo(4);
+        //}
+        //if (Input.GetKeyDown("5"))
+        //{
+        //    changeAmmo(5);
+        //}
+        //if (Input.GetKeyDown("q"))
+        //{
+        //    changeAmmo(--bullet);
+        //}
+        //if (Input.GetKeyDown("e"))
+        //{
+        //    changeAmmo(++bullet);
+        //}
     }
 
     public void coolDown ()
@@ -212,46 +214,87 @@ public class HealthPanel : MonoBehaviour {
                 bullet = 1;
             }
 
-            if (bullet == 1)
+            switch (bullet)
             {
-                ammo[0].color = Color.magenta;
-                ammo[1].color = Color.green;
-                ammo[2].color = Color.red;
-                ammo[3].color = Color.blue;
-                ammo[4].color = Color.yellow;
+                case 1:
+                    ammo[0].color = Color.magenta;
+                    ammo[1].color = Color.green;
+                    ammo[2].color = Color.red;
+                    ammo[3].color = Color.blue;
+                    ammo[4].color = Color.yellow;
+                    break;
+                case 2:
+                    ammo[0].color = Color.yellow;
+                    ammo[1].color = Color.magenta;
+                    ammo[2].color = Color.green;
+                    ammo[3].color = Color.red;
+                    ammo[4].color = Color.blue;
+                    break;
+                case 3:
+                    ammo[0].color = Color.blue;
+                    ammo[1].color = Color.yellow;
+                    ammo[2].color = Color.magenta;
+                    ammo[3].color = Color.green;
+                    ammo[4].color = Color.red;
+                    break;
+                case 4:
+                    ammo[0].color = Color.red;
+                    ammo[1].color = Color.blue;
+                    ammo[2].color = Color.yellow;
+                    ammo[3].color = Color.magenta;
+                    ammo[4].color = Color.green;
+                    break;
+                case 5:
+                    ammo[0].color = Color.green;
+                    ammo[1].color = Color.red;
+                    ammo[2].color = Color.blue;
+                    ammo[3].color = Color.yellow;
+                    ammo[4].color = Color.magenta;
+                    break;
+                default:
+                    break;
             }
-            else if (bullet == 2)
-            {
-                ammo[0].color = Color.yellow;
-                ammo[1].color = Color.magenta;
-                ammo[2].color = Color.green;
-                ammo[3].color = Color.red;
-                ammo[4].color = Color.blue;
-            }
-            else if (bullet == 3)
-            {
-                ammo[0].color = Color.blue;
-                ammo[1].color = Color.yellow;
-                ammo[2].color = Color.magenta;
-                ammo[3].color = Color.green;
-                ammo[4].color = Color.red;
-            }
-            else if (bullet == 4)
-            {
-                ammo[0].color = Color.red;
-                ammo[1].color = Color.blue;
-                ammo[2].color = Color.yellow;
-                ammo[3].color = Color.magenta;
-                ammo[4].color = Color.green;
-            }
-            else if (bullet == 5)
-            {
-                ammo[0].color = Color.green;
-                ammo[1].color = Color.red;
-                ammo[2].color = Color.blue;
-                ammo[3].color = Color.yellow;
-                ammo[4].color = Color.magenta;
-            }
+
+            //if (bullet == 1)
+            //{
+            //    ammo[0].color = Color.magenta;
+            //    ammo[1].color = Color.green;
+            //    ammo[2].color = Color.red;
+            //    ammo[3].color = Color.blue;
+            //    ammo[4].color = Color.yellow;
+            //}
+            //else if (bullet == 2)
+            //{
+            //    ammo[0].color = Color.yellow;
+            //    ammo[1].color = Color.magenta;
+            //    ammo[2].color = Color.green;
+            //    ammo[3].color = Color.red;
+            //    ammo[4].color = Color.blue;
+            //}
+            //else if (bullet == 3)
+            //{
+            //    ammo[0].color = Color.blue;
+            //    ammo[1].color = Color.yellow;
+            //    ammo[2].color = Color.magenta;
+            //    ammo[3].color = Color.green;
+            //    ammo[4].color = Color.red;
+            //}
+            //else if (bullet == 4)
+            //{
+            //    ammo[0].color = Color.red;
+            //    ammo[1].color = Color.blue;
+            //    ammo[2].color = Color.yellow;
+            //    ammo[3].color = Color.magenta;
+            //    ammo[4].color = Color.green;
+            //}
+            //else if (bullet == 5)
+            //{
+            //    ammo[0].color = Color.green;
+            //    ammo[1].color = Color.red;
+            //    ammo[2].color = Color.blue;
+            //    ammo[3].color = Color.yellow;
+            //    ammo[4].color = Color.magenta;
+            //}
         }
 
     } 
