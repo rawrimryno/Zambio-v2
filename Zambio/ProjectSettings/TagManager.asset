@@ -7,7 +7,7 @@ TagManager:
   - Shell
   - Mushroom
   - FireFlower
-  - Enemy
+  - HealthPanel
   layers:
   - Default
   - TransparentFX

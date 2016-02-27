@@ -70,6 +70,7 @@
     <Compile Include="Assets\Code\NavAgent\NavAgentGoToTransform.cs" />
     <Compile Include="Assets\Code\Player\Inventory.cs" />
     <Compile Include="Assets\Code\Player\MouseLook.cs" />
+    <Compile Include="Assets\Code\Player\PlayerController.cs" />
     <Compile Include="Assets\Code\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Code\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
