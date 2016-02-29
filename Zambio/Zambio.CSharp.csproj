@@ -74,6 +74,7 @@
     <Compile Include="Assets\Code\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Code\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Code\PowerUps\PowerUp.cs" />
+    <Compile Include="Assets\Code\TagAdder.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
     <Compile Include="Assets\Code\UI\HealthPanel.cs" />
     <Compile Include="Assets\Code\UI\InfoTab.cs" />
