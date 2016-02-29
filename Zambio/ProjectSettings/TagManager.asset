@@ -8,6 +8,8 @@ TagManager:
   - Mushroom
   - FireFlower
   - HealthPanel
+  - Enemy
+  - HealthStatusDisplay
   layers:
   - Default
   - TransparentFX

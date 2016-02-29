@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32c1844bfc7a87419f55a4d37443fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpFile: {fileID: 4900000, guid: a96fd7cff22f0fa43b2c4692f7ba30fd, type: 3}
+  ammoFile: {fileID: 4900000, guid: a9e60a33c8c3e3b48bd8ee4f3d7f8bb5, type: 3}
 --- !u!4 &63225777
 Transform:
   m_ObjectHideFlags: 0

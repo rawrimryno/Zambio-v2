@@ -25,7 +25,7 @@ public class Environment : MonoBehaviour
     public Color initNightColor;// = new Color (90,60,90);
 
     private float initTime = 6;  // This is what time it is when our game starts
-                                //  This shouldn't change, but make it public to tweak
+                                 //  This shouldn't change, but make it public to tweak
 
     private int numDays = 100;
     private float dt;
@@ -65,7 +65,7 @@ public class Environment : MonoBehaviour
         percentDay = dt / DayLength;       // (0 -> DayLength)/DayLength
         dtInHours = percentDay * 24f;      // (0 -> 1) * 24 should resemble hours now
         normInitTime = initTime / 24f * DayLength;  // initTime is in hours, make it percent apply to dayDuration
-        Debug.Log("<b>dtInHours : " + dtInHours + "</b>");
+        //Debug.Log("<b>dtInHours : " + dtInHours + "</b>");
         // This rotates our sun
         Sun.transform.rotation = Quaternion.AngleAxis(SunSpeed * (dt - normInitTime), SunRotationAxis);
 
@@ -102,27 +102,27 @@ public class Environment : MonoBehaviour
         changeColor(time, DawnStart, DayStart, initDawnColor, initDayColor);
 
         //changeColorofSomethingToResemble(DawnColorsInWorldView);
-        Debug.Log("Dawn");
+        // Debug.Log("Dawn");
     }
     void Day(float time)
     {
         changeIntensity(time, DayStart, DuskStart, initDayIntensity, initDuskIntensity);
         changeColor(time, DayStart, DuskStart, initDayColor, initDuskColor);
 
-        Debug.Log("Day");
+        //Debug.Log("Day");
     }
     void Dusk(float time)
     {
         changeIntensity(time, DuskStart, NightStart, initDuskIntensity, initNightIntensity);
         changeColor(time, DuskStart, NightStart, initDuskColor, initNightColor);
         // Trying out the mark-down stuff
-        Debug.Log("<b>Dusk</b>");
+        //Debug.Log("<b>Dusk</b>");
     }
     void Night(float time)
     {
         changeIntensity(time, NightStart, DawnStart, initNightIntensity, initDawnIntensity);
         changeColor(time, NightStart, DawnStart, initNightColor, initDawnColor);
-        Debug.Log("<i>Night</i>");
+        //Debug.Log("<i>Night</i>");
     }
 
 

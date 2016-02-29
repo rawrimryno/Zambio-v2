@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class HealthPanel : MonoBehaviour {
+public class HealthPanel : MonoBehaviour
+{
 
     public RectTransform coolDownBar;
     public float coolDownBase;
@@ -10,66 +11,69 @@ public class HealthPanel : MonoBehaviour {
     public int health;
     public Image[] ammo;
 
-    public int bullet;  
+    public int bullet;
     private float coolDownCur;
 
-	void Start () {
+    void Start()
+    {
         coolDownCur = coolDownBase;
         changeAmmo(1);
         coolDownCur = 0.5f;
         bullet = 1;
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
             coolDown();
         }
-        //if (Input.GetKeyDown("c"))
-        //{
-        //    setHearts();
-        //}
-        //if (Input.GetKeyDown("y"))
-        //{
-        //    health++;
-        //    setHearts();
-        //}
-        //if (Input.GetKeyDown("t"))
-        //{
-        //    health--;
-        //    setHearts();
-        //}
-        //if (Input.GetKeyDown("1"))
-        //{
-        //    changeAmmo(1);
-        //}
-        //if (Input.GetKeyDown("2"))
-        //{
-        //    changeAmmo(2);
-        //}
-        //if (Input.GetKeyDown("3"))
-        //{
-        //    changeAmmo(3);
-        //}
-        //if (Input.GetKeyDown("4"))
-        //{
-        //    changeAmmo(4);
-        //}
-        //if (Input.GetKeyDown("5"))
-        //{
-        //    changeAmmo(5);
-        //}
-        //if (Input.GetKeyDown("q"))
-        //{
-        //    changeAmmo(--bullet);
-        //}
-        //if (Input.GetKeyDown("e"))
-        //{
-        //    changeAmmo(++bullet);
-        //}
+        /*
+                //if (Input.GetKeyDown("c"))
+                //{
+                //    setHearts();
+                //}
+                //if (Input.GetKeyDown("y"))
+                //{
+                //    health++;
+                //    setHearts();
+                //}
+                //if (Input.GetKeyDown("t"))
+                //{
+                //    health--;
+                //    setHearts();
+                //}
+                //if (Input.GetKeyDown("1"))
+                //{
+                //    changeAmmo(1);
+                //}
+                //if (Input.GetKeyDown("2"))
+                //{
+                //    changeAmmo(2);
+                //}
+                //if (Input.GetKeyDown("3"))
+                //{
+                //    changeAmmo(3);
+                //}
+                //if (Input.GetKeyDown("4"))
+                //{
+                //    changeAmmo(4);
+                //}
+                //if (Input.GetKeyDown("5"))
+                //{
+                //    changeAmmo(5);
+                //}
+                //if (Input.GetKeyDown("q"))
+                //{
+                //    changeAmmo(--bullet);
+                //}
+                //if (Input.GetKeyDown("e"))
+                //{
+                //    changeAmmo(++bullet);
+                //}*/
     }
 
-    public void coolDown ()
+    public void coolDown()
     {
 
         if (coolDownCur == coolDownBase)
@@ -81,12 +85,12 @@ public class HealthPanel : MonoBehaviour {
 
     }
 
-    private void coolDownScaler () //Visual Aid
+    private void coolDownScaler() //Visual Aid
     {
         if (coolDownCur < coolDownBase)
         {
             coolDownCur++;
-            coolDownBar.localScale = new Vector3((float) coolDownCur / coolDownBase, (float) coolDownCur / coolDownBase, 1);
+            coolDownBar.localScale = new Vector3((float)coolDownCur / coolDownBase, (float)coolDownCur / coolDownBase, 1);
         }
         else
         {
@@ -94,13 +98,13 @@ public class HealthPanel : MonoBehaviour {
         }
     }
 
-    public void setHearts ()
+    public void setHearts()
     {
-        if(health < 0)
+        if (health < 0)
         {
             health = 0;
         }
-        if(health > 10)
+        if (health > 10)
         {
             health = 10;
         }
@@ -113,7 +117,7 @@ public class HealthPanel : MonoBehaviour {
             hearts[3].color = Color.gray;
             hearts[4].color = Color.gray;
         }
-        else if(health == 1)
+        else if (health == 1)
         {
             hearts[0].color = Color.yellow;
             hearts[1].color = Color.gray;
@@ -196,9 +200,9 @@ public class HealthPanel : MonoBehaviour {
 
     }
 
-    public void changeAmmo (int ammoType)
+    public void changeAmmo(int ammoType)
     {
-        if(!IsInvoking("coolDownScaler")) //Remove To Have A Blast
+        if (!IsInvoking("coolDownScaler")) //Remove To Have A Blast
         {
 
             coolDownCur = coolDownBase;
@@ -297,6 +301,6 @@ public class HealthPanel : MonoBehaviour {
             //}
         }
 
-    } 
+    }
 
 }

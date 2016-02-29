@@ -921,6 +921,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoTab: {fileID: 2092840633}
   active: 1
+--- !u!1001 &465186304
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 182.06783
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 417.24918
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 253.00665
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 477232, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425200, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446976, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10828446, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 865f5cb23c44e0744b4314315bd08fa9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &490617592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,9 +1659,10 @@ GameObject:
   - 224: {fileID: 1532444851}
   - 222: {fileID: 1532444853}
   - 114: {fileID: 1532444852}
+  - 114: {fileID: 1532444854}
   m_Layer: 5
   m_Name: StatusTXT
-  m_TagString: Untagged
+  m_TagString: HealthStatusDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1668,6 +1723,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532444850}
+--- !u!114 &1532444854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532444850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01791ac5d25a80c47902a1df5582467d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myParent: {fileID: 396705613}
 --- !u!1 &1552752472
 GameObject:
   m_ObjectHideFlags: 0

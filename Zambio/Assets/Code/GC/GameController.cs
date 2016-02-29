@@ -2,12 +2,17 @@
 using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
-
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
 // Worker GameController
 public class GameController : MonoBehaviour
 {
     GameData data;
     GameControllerSingleton gc;
+
+    public TextAsset powerUpFile, ammoFile;
+
     private bool UIenabled = false;
 
     void Awake()
@@ -18,16 +23,9 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        gc = GameControllerSingleton.get();
 
-        /* This If and Else are for maintaining the gamecontroller through additional scenes.
-        */
-        if (gc == null)
-        {
-            DontDestroyOnLoad(this);
-            gc = GameControllerSingleton.get();
-        }
-        else
-            Destroy(this);
+        gc.loadTexts(powerUpFile, ammoFile);
     }
 
     // Update is called once per frame
@@ -50,7 +48,6 @@ public class GameController : MonoBehaviour
         }
     }
 }
-
 [Serializable]
 class GameData
 {

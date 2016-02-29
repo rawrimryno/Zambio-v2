@@ -73,10 +73,16 @@
     <Compile Include="Assets\Code\Player\PlayerController.cs" />
     <Compile Include="Assets\Code\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Code\Player\PlayerShoot.cs" />
+    <Compile Include="Assets\Code\PowerUps\PowerUp.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
     <Compile Include="Assets\Code\UI\HealthPanel.cs" />
     <Compile Include="Assets\Code\UI\InfoTab.cs" />
     <Compile Include="Assets\Code\UI\WarnTop.cs" />
+    <Compile Include="Assets\HealthPanelDisplay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Text\ammo.txt" />
+    <None Include="Assets\Text\powerUps.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
