@@ -9,10 +9,11 @@ public class GameControllerSingleton : ScriptableObject
     private static GameControllerSingleton _instance;
 
     //public Dictionary<string, PowerUpDesc> powerUpData;
-    public Dictionary<string,PowerUpDesc> powerUpData;
+    public Dictionary<string, PowerUpDesc> powerUpData;
     public int numPowerUps { get; private set; }
     //public Dictionary<string, AmmoDesc> ammoData;
-    public Dictionary<string,AmmoDesc> ammoData;
+    public Dictionary<string, AmmoDesc> ammoData;
+    public Dictionary<int, AmmoDesc> ammoByID { get; private set; }
     public int numAmmo
     {
         get; private set;
@@ -38,6 +39,7 @@ public class GameControllerSingleton : ScriptableObject
         DontDestroyOnLoad(this);
         powerUpData = new Dictionary<string, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
+        ammoByID = new Dictionary<int, AmmoDesc>();
         // Do initial load up stuff
     }
 
@@ -48,12 +50,29 @@ public class GameControllerSingleton : ScriptableObject
         {
             pc = FindObjectOfType<PlayerController>();
         }
-       // Debug.Log("GCS Updating");
+        // Debug.Log("GCS Updating");
+    }
+
+    public string getAmmoDisplayNamefromID(int ammoID)
+    {
+        string rName;
+        AmmoDesc tempAmmoDesc;
+
+        if (ammoByID.TryGetValue(ammoID, out tempAmmoDesc))
+        {
+            rName = tempAmmoDesc.dName;
+        }
+
+        else
+        {
+            rName = "null";
+        }
+        return rName;
     }
     public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile)
     {
         int i = 0;
-        string shortName, dispName,desc;
+        string shortName, dispName, desc;
         StringReader sr = new StringReader(powerUpFile.text);
         while ((shortName = sr.ReadLine()) != null && shortName[0] != '~')
         {
@@ -65,7 +84,7 @@ public class GameControllerSingleton : ScriptableObject
                 tempPowerUp.setDesc(desc);
             tempPowerUp.setID(i++);
             tempPowerUp.setSprite(null);
-            powerUpData.Add(shortName,tempPowerUp);
+            powerUpData.Add(shortName, tempPowerUp);
             //powerUpData.Add(tempPowerUp.sName, tempPowerUp);
         }
         i = 0;
@@ -82,11 +101,12 @@ public class GameControllerSingleton : ScriptableObject
             tempAmmoDesc.setID(i++);
             tempAmmoDesc.setSprite(null);
             //            ammoData.Add(tempAmmoDesc.sName, tempAmmoDesc);
-            ammoData.Add(shortName,tempAmmoDesc);
+            ammoData.Add(shortName, tempAmmoDesc);
+            ammoByID.Add(i - 1, tempAmmoDesc);
 
-           // Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
+            // Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
 
         }
-       // Debug.Log("Tried to loadAmmo and PowerUps");
+        // Debug.Log("Tried to loadAmmo and PowerUps");
     }
 }

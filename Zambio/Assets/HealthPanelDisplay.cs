@@ -14,10 +14,7 @@ public class HealthPanelDisplay : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gc = GameControllerSingleton.get();
-        AmmoDesc tempDesc = new AmmoDesc();
-        if ( gc.pc.myInventory.powerUpContents.Contains)
-        myTextBox.text = gc.ammoData[0].dName;
-        //myTextBox.text = gc.powerUpData[0].dName;
+        myTextBox.text = gc.getAmmoDisplayNamefromID(0);
 	}
 	
 	// Update is called once per frame
@@ -26,6 +23,7 @@ public class HealthPanelDisplay : MonoBehaviour {
 	}
     public void setTextToAmmoName()
     {
-        myTextBox.text = gc.ammoData[myParent.bullet-1].dName;
+        // Zach's bullet counter starts at 1, our database starts at 0, hence offset.
+        myTextBox.text = gc.getAmmoDisplayNamefromID(myParent.bullet - 1);
     }
 }
