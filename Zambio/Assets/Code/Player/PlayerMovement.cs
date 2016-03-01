@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour {
             moveDirection *= speed;
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
-
+        }else
+        {
+            controller.Move(moveDirection * Time.deltaTime);
         }
+
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }

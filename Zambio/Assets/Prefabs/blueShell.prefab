@@ -327,7 +327,7 @@ GameObject:
   - 4: {fileID: 433102}
   - 114: {fileID: 11418892}
   m_Layer: 0
-  m_Name: Blue.Shell
+  m_Name: blueShell
   m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

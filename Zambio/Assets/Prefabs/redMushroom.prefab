@@ -107,9 +107,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 453290}
   - 122: {fileID: 12280834}
+  - 114: {fileID: 11439092}
   m_Layer: 0
-  m_Name: red.mushroom
-  m_TagString: Mushroom
+  m_Name: redMushroom
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,6 +400,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165984}
   m_Mesh: {fileID: 4300008, guid: 3410d7118a72c9f4ba715d0aa76b20d9, type: 3}
+--- !u!114 &11439092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017e63ac7ea671949aba92a6faa4a19f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numQtrHearts: 4
+  defenseModifier: 0
+  isFire: 0
+  isFeather: 0
+  isMetal: 0
+  myPowerUpID: 0
 --- !u!122 &12280834
 Halo:
   m_ObjectHideFlags: 1
@@ -419,7 +437,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Mushroom
+      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size
@@ -440,6 +458,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 1.785094
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: numQtrHearts
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

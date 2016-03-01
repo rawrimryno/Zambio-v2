@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 409598}
   - 114: {fileID: 11457466}
   m_Layer: 0
-  m_Name: Red Bullet Bill
+  m_Name: redBulletBill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
