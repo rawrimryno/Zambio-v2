@@ -24,6 +24,8 @@ public class HealthPanel : MonoBehaviour
 
     private float coolDownCur;
 
+    private bool init = false;
+
     void Start()
     {
         coolDownCur = coolDownBase;
@@ -32,11 +34,40 @@ public class HealthPanel : MonoBehaviour
         bullet = 1;
 
         gc = GameControllerSingleton.get();
+        ammoIcons = new Sprite[gc.numAmmo];
+
+        if (!init)
+        {
+            int i = 0;
+            Sprite tempSpr;
+            while (i < gc.numAmmo)
+            {
+                tempSpr = gc.getAmmoSpriteByID(i);
+                ammo[i].sprite = tempSpr;
+                //ammo[i].sprite = ammoIcons[0];
+                i++;
+            }
+            init = true;
+
+        }
+
 
     }
 
     void Update()
     {
+        int i = 0;
+        if (!init)
+        {
+            Sprite tempSpr;
+            while (i < gc.numAmmo)
+            {
+                tempSpr = gc.getAmmoSpriteByID(i);
+                ammoIcons[i++] = tempSpr;
+            }
+            init = true;
+
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             coolDown();
@@ -150,8 +181,8 @@ public class HealthPanel : MonoBehaviour
             switch (bullet)
             {
                 case 1:
-                    ammo[0].color = Color.magenta;
-                    //ammo[0].sprite = gc.getAmmoSpriteByID(0);
+                    //ammo[0].color = Color.magenta;
+                    ammo[0].sprite = ammoIcons[0];
                     ammo[1].color = Color.green;
                     ammo[2].color = Color.red;
                     ammo[3].color = Color.blue;

@@ -21,7 +21,7 @@ public class GameControllerSingleton : ScriptableObject
         get; private set;
     }
     public PlayerController pc;
-    public Transform playerTransform;  // For Enemy Nav Agent
+
 
     bool hasPC = false;
 
@@ -37,15 +37,24 @@ public class GameControllerSingleton : ScriptableObject
         return _instance;
     }
 
+    void Awake()
+    {
+
+    }
 
     void Start()
     {
-        DontDestroyOnLoad(this);
         powerUpData = new Dictionary<string, PowerUpDesc>();
         powerUpByID = new Dictionary<int, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
         ammoByID = new Dictionary<int, AmmoDesc>();
         // Do initial load up stuff
+        if (!hasPC)
+        {
+            pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            hasPC = true;
+        }
+
     }
 
     // Update is called once per frame
@@ -54,7 +63,7 @@ public class GameControllerSingleton : ScriptableObject
         if (!hasPC)
         {
             pc = FindObjectOfType<PlayerController>();
-            playerTransform = pc.gameObject.transform;
+            //playerTransform = pc.gameObject.transform;
         }
         // Debug.Log("GCS Updating");
     }
@@ -90,17 +99,17 @@ public class GameControllerSingleton : ScriptableObject
                 tempPowerUp.setDesc(desc);
 
             id = Convert.ToInt32(sr.ReadLine());
-            tempPowerUp.setID( id );
-            
-            tempPowerUp.setSprite(ammoSpr[id]);
+            tempPowerUp.setID(id);
+
             TagAdder.AddTag(shortName);
             powerUpData.Add(shortName, tempPowerUp);
-            powerUpByID.Add( tempPowerUp.ID, tempPowerUp);
+            powerUpByID.Add(tempPowerUp.ID, tempPowerUp);
+            tempPowerUp.setSprite(powerUpSpr[id]);
             //Debug.Log(i);
 
         }
         i = 0;
-
+        // AMMO SECTION
         StringReader asr = new StringReader(ammoFile.text);
         while ((shortName = asr.ReadLine()) != null)
         {
@@ -111,21 +120,23 @@ public class GameControllerSingleton : ScriptableObject
             if ((desc = asr.ReadLine()) != null)
                 tempAmmoDesc.setDesc(desc);
             tempAmmoDesc.setID(i);
-            tempAmmoDesc.setSprite(ammoSpr[i++]);
             //            ammoData.Add(tempAmmoDesc.sName, tempAmmoDesc);
             ammoData.Add(shortName, tempAmmoDesc);
-            ammoByID.Add(i - 1, tempAmmoDesc);
+            ammoByID.Add(i, tempAmmoDesc);
+            tempAmmoDesc.setSprite(i, ammoSpr[i++]);
 
-             Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
+
+            //Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
 
         }
+        numAmmo = i;
         // Debug.Log("Tried to loadAmmo and PowerUps");
     }
     // Loading Sprites only at the beginning
     private Sprite getUISprite(string sName)
     {
         Sprite rSpr = Resources.Load(sName) as Sprite;
-        if ( rSpr == null)
+        if (rSpr == null)
         {
             Debug.Log("No Sprite loaded");
         }
@@ -135,11 +146,15 @@ public class GameControllerSingleton : ScriptableObject
     // It feels wrong to write this..
     public Sprite getAmmoSpriteByID(int ammoID)
     {
-        Sprite rSprite= null;
+        Sprite rSprite = new Sprite();
         AmmoDesc tmp;
-        if(ammoByID.TryGetValue(ammoID, out tmp))
+        if (ammoByID.TryGetValue(ammoID, out tmp))
         {
             rSprite = tmp.sprite;
+        }
+        else
+        {
+            Debug.Log("getAmmoSpriteByID failed for " + ammoID);
         }
         return rSprite;
     }

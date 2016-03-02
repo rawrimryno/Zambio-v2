@@ -6,6 +6,7 @@ public class HealthPanelDisplay : MonoBehaviour {
     Text myTextBox;
     GameControllerSingleton gc;
     public HealthPanel myParent;
+    Image myImage;
 
     void Awake()
     {
