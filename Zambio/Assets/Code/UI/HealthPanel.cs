@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class HealthPanel : MonoBehaviour
 {
@@ -8,18 +9,18 @@ public class HealthPanel : MonoBehaviour
     public RectTransform coolDownBar;
     public float coolDownBase;
     public Image[] hearts;
+    public Sprite[] heartIcons;
     public int health;
     public Image[] ammo;
-
+    public Sprite[] ammoIcons;
     public int bullet;
+
     private float coolDownCur;
 
     void Start()
     {
         coolDownCur = coolDownBase;
         changeAmmo(1);
-        coolDownCur = 0.5f;
-        bullet = 1;
     }
 
     void Update()
@@ -28,49 +29,18 @@ public class HealthPanel : MonoBehaviour
         {
             coolDown();
         }
-        /*
-                //if (Input.GetKeyDown("c"))
-                //{
-                //    setHearts();
-                //}
-                //if (Input.GetKeyDown("y"))
-                //{
-                //    health++;
-                //    setHearts();
-                //}
-                //if (Input.GetKeyDown("t"))
-                //{
-                //    health--;
-                //    setHearts();
-                //}
-                //if (Input.GetKeyDown("1"))
-                //{
-                //    changeAmmo(1);
-                //}
-                //if (Input.GetKeyDown("2"))
-                //{
-                //    changeAmmo(2);
-                //}
-                //if (Input.GetKeyDown("3"))
-                //{
-                //    changeAmmo(3);
-                //}
-                //if (Input.GetKeyDown("4"))
-                //{
-                //    changeAmmo(4);
-                //}
-                //if (Input.GetKeyDown("5"))
-                //{
-                //    changeAmmo(5);
-                //}
-                //if (Input.GetKeyDown("q"))
-                //{
-                //    changeAmmo(--bullet);
-                //}
-                //if (Input.GetKeyDown("e"))
-                //{
-                //    changeAmmo(++bullet);
-                //}*/
+
+        if (Input.GetKeyDown("z"))
+        {
+            health--;
+            setHearts();
+        }
+        if (Input.GetKeyDown("x"))
+        {
+            health++;
+            setHearts();
+        }
+
     }
 
     public void coolDown()
@@ -104,98 +74,43 @@ public class HealthPanel : MonoBehaviour
         {
             health = 0;
         }
-        if (health > 10)
+        if (health > 20)
         {
-            health = 10;
+            health = 20;
         }
 
-        if (health == 0)
+        int fullHeart = health / 4;
+        int partHeart = health % 4;
+
+        for (int i = 0; i < 5; i++)
         {
-            hearts[0].color = Color.gray;
-            hearts[1].color = Color.gray;
-            hearts[2].color = Color.gray;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 1)
-        {
-            hearts[0].color = Color.yellow;
-            hearts[1].color = Color.gray;
-            hearts[2].color = Color.gray;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 2)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.gray;
-            hearts[2].color = Color.gray;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 3)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.yellow;
-            hearts[2].color = Color.gray;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 4)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.gray;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 5)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.yellow;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 6)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.red;
-            hearts[3].color = Color.gray;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 7)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.red;
-            hearts[3].color = Color.yellow;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 8)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.red;
-            hearts[3].color = Color.red;
-            hearts[4].color = Color.gray;
-        }
-        else if (health == 9)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.red;
-            hearts[3].color = Color.red;
-            hearts[4].color = Color.yellow;
-        }
-        else if (health == 10)
-        {
-            hearts[0].color = Color.red;
-            hearts[1].color = Color.red;
-            hearts[2].color = Color.red;
-            hearts[3].color = Color.red;
-            hearts[4].color = Color.red;
+            if (i <= fullHeart - 1)
+            {
+                hearts[i].sprite = heartIcons[3];
+                hearts[i].color = Color.red;
+            }
+            else if (i == fullHeart && partHeart > 0)
+            {
+                switch (partHeart)
+                {
+                    case 1:
+                        hearts[i].sprite = heartIcons[0];
+                        break;
+                    case 2:
+                        hearts[i].sprite = heartIcons[1];
+                        break;
+                    case 3:
+                        hearts[i].sprite = heartIcons[2];
+                        break;
+                    default:
+                        break;
+                }
+                hearts[i].color = Color.red;
+            }
+            else
+            {
+                hearts[i].color = Color.clear;
+            }
         }
 
     }
@@ -207,6 +122,7 @@ public class HealthPanel : MonoBehaviour
 
             coolDownCur = coolDownBase;
             coolDownBar.localScale = new Vector3((float)coolDownCur / coolDownBase, (float)coolDownCur / coolDownBase, 1);
+
             bullet = ammoType;
 
             if (bullet < 1)
@@ -259,46 +175,6 @@ public class HealthPanel : MonoBehaviour
                     break;
             }
 
-            //if (bullet == 1)
-            //{
-            //    ammo[0].color = Color.magenta;
-            //    ammo[1].color = Color.green;
-            //    ammo[2].color = Color.red;
-            //    ammo[3].color = Color.blue;
-            //    ammo[4].color = Color.yellow;
-            //}
-            //else if (bullet == 2)
-            //{
-            //    ammo[0].color = Color.yellow;
-            //    ammo[1].color = Color.magenta;
-            //    ammo[2].color = Color.green;
-            //    ammo[3].color = Color.red;
-            //    ammo[4].color = Color.blue;
-            //}
-            //else if (bullet == 3)
-            //{
-            //    ammo[0].color = Color.blue;
-            //    ammo[1].color = Color.yellow;
-            //    ammo[2].color = Color.magenta;
-            //    ammo[3].color = Color.green;
-            //    ammo[4].color = Color.red;
-            //}
-            //else if (bullet == 4)
-            //{
-            //    ammo[0].color = Color.red;
-            //    ammo[1].color = Color.blue;
-            //    ammo[2].color = Color.yellow;
-            //    ammo[3].color = Color.magenta;
-            //    ammo[4].color = Color.green;
-            //}
-            //else if (bullet == 5)
-            //{
-            //    ammo[0].color = Color.green;
-            //    ammo[1].color = Color.red;
-            //    ammo[2].color = Color.blue;
-            //    ammo[3].color = Color.yellow;
-            //    ammo[4].color = Color.magenta;
-            //}
         }
 
     }

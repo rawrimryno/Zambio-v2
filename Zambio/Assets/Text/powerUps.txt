@@ -1,20 +1,9 @@
-greenMushroom
-Green Mushroom
-1-UP!
-0
-redMushroom
+redShroom
 Red Mushroom
 Red Mushroom Goooood, Jump higher
-1
-rancidMushroom
-Rancid Mushroom
-This doesn't look terribly edible..
-2
 fireFlower
 Fire Flower
 Make stuff go boom
-3
 metalMario
 Metal Mario
 Increased defenses, decreased speed
-4
