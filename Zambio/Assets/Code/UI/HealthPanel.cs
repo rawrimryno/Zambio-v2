@@ -33,41 +33,42 @@ public class HealthPanel : MonoBehaviour
         coolDownCur = 0.5f;
         bullet = 1;
 
-        gc = GameControllerSingleton.get();
-        ammoIcons = new Sprite[gc.numAmmo];
+        //gc = GameControllerSingleton.get();
+        //ammoIcons = new Sprite[gc.numAmmo];
 
-        if (!init)
-        {
-            int i = 0;
-            Sprite tempSpr;
-            while (i < gc.numAmmo)
-            {
-                tempSpr = gc.getAmmoSpriteByID(i);
-                ammo[i].sprite = tempSpr;
-                //ammo[i].sprite = ammoIcons[0];
-                i++;
-            }
-            init = true;
+        //if (!init)
+        //{
+        //    int i = 0;
+        //    Sprite tempSpr;
+        //    while (i < gc.numAmmo)
+        //    {
+        //        tempSpr = gc.getAmmoSpriteByID(i);
+        //        ammo[i].sprite = tempSpr;
+        //        //ammo[i].sprite = ammoIcons[0];
+        //        i++;
+        //    }
+        //    init = true;
 
-        }
+        //}
 
 
     }
 
     void Update()
     {
-        int i = 0;
-        if (!init)
-        {
-            Sprite tempSpr;
-            while (i < gc.numAmmo)
-            {
-                tempSpr = gc.getAmmoSpriteByID(i);
-                ammoIcons[i++] = tempSpr;
-            }
-            init = true;
+        //int i = 0;
+        //if (!init)
+        //{
+        //    Sprite tempSpr;
+        //    while (i < gc.numAmmo)
+        //    {
+        //        tempSpr = gc.getAmmoSpriteByID(i);
+        //        ammoIcons[i++] = tempSpr;
+        //    }
+        //    init = true;
 
-        }
+        //}
+
         if (Input.GetButtonDown("Fire1"))
         {
             coolDown();
@@ -82,6 +83,14 @@ public class HealthPanel : MonoBehaviour
         {
             health++;
             setHearts();
+        }
+        if (Input.GetKeyDown("c"))
+        {
+            changeAmmo(--bullet);
+        }
+        if (Input.GetKeyDown("v"))
+        {
+            changeAmmo(++bullet);
         }
 
     }
@@ -181,40 +190,39 @@ public class HealthPanel : MonoBehaviour
             switch (bullet)
             {
                 case 1:
-                    //ammo[0].color = Color.magenta;
                     ammo[0].sprite = ammoIcons[0];
-                    ammo[1].color = Color.green;
-                    ammo[2].color = Color.red;
-                    ammo[3].color = Color.blue;
-                    ammo[4].color = Color.yellow;
+                    ammo[1].sprite = ammoIcons[1];
+                    ammo[2].sprite = ammoIcons[2];
+                    ammo[3].sprite = ammoIcons[3];
+                    ammo[4].sprite = ammoIcons[4];
                     break;
                 case 2:
-                    ammo[0].color = Color.yellow;
-                    ammo[1].color = Color.magenta;
-                    ammo[2].color = Color.green;
-                    ammo[3].color = Color.red;
-                    ammo[4].color = Color.blue;
+                    ammo[0].sprite = ammoIcons[4];
+                    ammo[1].sprite = ammoIcons[0];
+                    ammo[2].sprite = ammoIcons[1];
+                    ammo[3].sprite = ammoIcons[2];
+                    ammo[4].sprite = ammoIcons[3];
                     break;
                 case 3:
-                    ammo[0].color = Color.blue;
-                    ammo[1].color = Color.yellow;
-                    ammo[2].color = Color.magenta;
-                    ammo[3].color = Color.green;
-                    ammo[4].color = Color.red;
+                    ammo[0].sprite = ammoIcons[3];
+                    ammo[1].sprite = ammoIcons[4];
+                    ammo[2].sprite = ammoIcons[0];
+                    ammo[3].sprite = ammoIcons[1];
+                    ammo[4].sprite = ammoIcons[2];
                     break;
                 case 4:
-                    ammo[0].color = Color.red;
-                    ammo[1].color = Color.blue;
-                    ammo[2].color = Color.yellow;
-                    ammo[3].color = Color.magenta;
-                    ammo[4].color = Color.green;
+                    ammo[0].sprite = ammoIcons[2];
+                    ammo[1].sprite = ammoIcons[3];
+                    ammo[2].sprite = ammoIcons[4];
+                    ammo[3].sprite = ammoIcons[0];
+                    ammo[4].sprite = ammoIcons[1];
                     break;
                 case 5:
-                    ammo[0].color = Color.green;
-                    ammo[1].color = Color.red;
-                    ammo[2].color = Color.blue;
-                    ammo[3].color = Color.yellow;
-                    ammo[4].color = Color.magenta;
+                    ammo[0].sprite = ammoIcons[1];
+                    ammo[1].sprite = ammoIcons[2];
+                    ammo[2].sprite = ammoIcons[3];
+                    ammo[3].sprite = ammoIcons[4];
+                    ammo[4].sprite = ammoIcons[0];
                     break;
                 default:
                     break;
