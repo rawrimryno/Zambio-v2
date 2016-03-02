@@ -12,14 +12,14 @@ public class HealthPanel : MonoBehaviour
     public Sprite[] heartIcons;
     public int health;
     public Image[] ammo;
-<<<<<<< HEAD
+
 
     /* Begin Todd Testing Section */
     GameControllerSingleton gc;
 
-=======
+
     public Sprite[] ammoIcons;
->>>>>>> origin/UI
+
     public int bullet;
 
     private float coolDownCur;
@@ -28,13 +28,11 @@ public class HealthPanel : MonoBehaviour
     {
         coolDownCur = coolDownBase;
         changeAmmo(1);
-<<<<<<< HEAD
         coolDownCur = 0.5f;
         bullet = 1;
 
         gc = GameControllerSingleton.get();
-=======
->>>>>>> origin/UI
+
     }
 
     void Update()
