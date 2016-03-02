@@ -11,6 +11,9 @@ public class HealthPanel : MonoBehaviour
     public int health;
     public Image[] ammo;
 
+    /* Begin Todd Testing Section */
+    GameControllerSingleton gc;
+
     public int bullet;
     private float coolDownCur;
 
@@ -20,6 +23,8 @@ public class HealthPanel : MonoBehaviour
         changeAmmo(1);
         coolDownCur = 0.5f;
         bullet = 1;
+
+        gc = GameControllerSingleton.get();
     }
 
     void Update()
@@ -202,6 +207,7 @@ public class HealthPanel : MonoBehaviour
 
     public void changeAmmo(int ammoType)
     {
+        //Sprite test = gc.getAmmoSpriteByID(0);
         if (!IsInvoking("coolDownScaler")) //Remove To Have A Blast
         {
 
@@ -222,6 +228,7 @@ public class HealthPanel : MonoBehaviour
             {
                 case 1:
                     ammo[0].color = Color.magenta;
+                    //ammo[0].sprite = gc.getAmmoSpriteByID(0);
                     ammo[1].color = Color.green;
                     ammo[2].color = Color.red;
                     ammo[3].color = Color.blue;

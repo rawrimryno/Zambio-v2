@@ -113,9 +113,9 @@ public class AmmoDesc
         desc = description;
         return true;
     }
-    public bool setSprite(Sprite powerUpSprite)
+    public bool setSprite(Sprite ammoSprite)
     {
-        sprite = powerUpSprite;
+        sprite = ammoSprite;
         return true;
     }
     public AmmoDesc()
