@@ -15,7 +15,7 @@ public class NavAgentGoToTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null && target.gameObject != null)
+        if (target != null)
         {
             agent.SetDestination(target.position);
             transform.LookAt(target);

@@ -3,7 +3,6 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using System;
 // Maintainer/Listener GameController
 public class GameControllerSingleton : ScriptableObject
 {
@@ -11,7 +10,6 @@ public class GameControllerSingleton : ScriptableObject
 
     //public Dictionary<string, PowerUpDesc> powerUpData;
     public Dictionary<string, PowerUpDesc> powerUpData;
-    public Dictionary<int, PowerUpDesc> powerUpByID;
     public int numPowerUps { get; private set; }
     //public Dictionary<string, AmmoDesc> ammoData;
     public Dictionary<string, AmmoDesc> ammoData;
@@ -42,7 +40,6 @@ public class GameControllerSingleton : ScriptableObject
     {
         DontDestroyOnLoad(this);
         powerUpData = new Dictionary<string, PowerUpDesc>();
-        powerUpByID = new Dictionary<int, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
         ammoByID = new Dictionary<int, AmmoDesc>();
         // Do initial load up stuff
@@ -88,6 +85,7 @@ public class GameControllerSingleton : ScriptableObject
                 tempPowerUp.setDName(dispName);
             if ((desc = sr.ReadLine()) != null)
                 tempPowerUp.setDesc(desc);
+<<<<<<< HEAD
             id = Convert.ToInt32(sr.ReadLine());
             tempPowerUp.setID( id );
             
@@ -96,7 +94,14 @@ public class GameControllerSingleton : ScriptableObject
             powerUpData.Add(shortName, tempPowerUp);
             powerUpByID.Add( tempPowerUp.ID, tempPowerUp);
             //Debug.Log(i);
+=======
+            tempPowerUp.setID(i++);
+            tempPowerUp.setSprite(null);
+            powerUpData.Add(shortName, tempPowerUp);
+            //powerUpData.Add(tempPowerUp.sName, tempPowerUp);
+>>>>>>> origin/UI
         }
+        i = 0;
 
         StringReader asr = new StringReader(ammoFile.text);
         while ((shortName = asr.ReadLine()) != null)
@@ -110,7 +115,6 @@ public class GameControllerSingleton : ScriptableObject
             tempAmmoDesc.setID(i);
             tempAmmoDesc.setSprite(ammoSpr[i++]);
             //            ammoData.Add(tempAmmoDesc.sName, tempAmmoDesc);
-            TagAdder.AddTag(shortName);
             ammoData.Add(shortName, tempAmmoDesc);
             ammoByID.Add(i - 1, tempAmmoDesc);
 

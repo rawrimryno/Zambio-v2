@@ -1642,6 +1642,7 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+
     - target: {fileID: 13694720, guid: ca6abd06a4b9bd945ae62f7e06575efd, type: 2}
       propertyPath: m_Enabled
       value: 1
@@ -1652,6 +1653,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11407220, guid: ca6abd06a4b9bd945ae62f7e06575efd, type: 2}
+
   m_ParentPrefab: {fileID: 100100000, guid: ca6abd06a4b9bd945ae62f7e06575efd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1180224739 stripped
