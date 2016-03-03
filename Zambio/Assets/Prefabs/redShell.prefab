@@ -11,6 +11,7 @@ GameObject:
   - 195: {fileID: 19526066}
   - 136: {fileID: 13694720}
   - 114: {fileID: 11407220}
+  - 54: {fileID: 5450530}
   m_Layer: 0
   m_Name: redShell
   m_TagString: Shell
@@ -275,6 +276,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138462}
   m_Mesh: {fileID: 4300000, guid: 899b55799cdfbd04a915881fb7a6a3e3, type: 3}
+--- !u!54 &5450530
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103598}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &11407220
 MonoBehaviour:
   m_ObjectHideFlags: 1

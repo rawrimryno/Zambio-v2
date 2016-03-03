@@ -31,12 +31,53 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO: Key->Button
         if (Input.GetKeyDown("q"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(++ammo);
+            hpDisplay.setTextToAmmoName();
+        }
+
+        //Zach Added Below Cases
+        if (Input.GetKeyDown("e"))
         {
             int ammo = UI.bullet;
             UI.changeAmmo(--ammo);
             hpDisplay.setTextToAmmoName();
         }
+        //ShortCut Keys
+        if (Input.GetKeyDown("1"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(1);
+            hpDisplay.setTextToAmmoName();
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(2);
+            hpDisplay.setTextToAmmoName();
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(3);
+            hpDisplay.setTextToAmmoName();
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(4);
+            hpDisplay.setTextToAmmoName();
+        }
+        if (Input.GetKeyDown("5"))
+        {
+            int ammo = UI.bullet;
+            UI.changeAmmo(5);
+            hpDisplay.setTextToAmmoName();
+        }
+
     }
     void OnTriggerEnter(Collider tColl)
     {

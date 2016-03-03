@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerShoot : MonoBehaviour {
 
-    public GameObject ammo;
+    public GameObject[] ammo;
     public float bulletSpeed;
     public float rateOfFire;
     private float timer;
@@ -20,7 +20,7 @@ public class PlayerShoot : MonoBehaviour {
             rateOfFire = 1.0f;
         }
         timer = rateOfFire;
-        projectile = ammo.GetComponent<Rigidbody>();
+        projectile = ammo[3].GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
