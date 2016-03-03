@@ -25,12 +25,11 @@ public class PlayerShoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0)
+        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && Time.timeScale!= 0f)
         {
             Rigidbody clone;
             clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
-            Debug.Log("You Fired!");
             rateOfFire = timer;
         }
         else

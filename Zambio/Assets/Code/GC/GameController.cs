@@ -35,19 +35,20 @@ public class GameController : MonoBehaviour
     {
         gc.Update();
         // UI Toggle
-        if (Input.GetButtonDown("toggleUI"))
-        {
-            if (UIenabled)
-            {
-                SceneManager.UnloadScene("UI");
-                UIenabled = false;
-            }
-            else
-            {
-                SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-                UIenabled = true;
-            }
-        }
+        // UI should already be loaded through player controller -Ryan
+        //if (Input.GetButtonDown("toggleUI"))
+        //{
+        //    if (UIenabled)
+        //    {
+        //        SceneManager.UnloadScene("UI");
+        //        UIenabled = false;
+        //    }
+        //    else
+        //    {
+        //        SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        //        UIenabled = true;
+        //    }
+        //}
     }
 }
 [Serializable]

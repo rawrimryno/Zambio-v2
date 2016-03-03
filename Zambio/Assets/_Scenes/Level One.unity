@@ -159,7 +159,7 @@ Transform:
   m_Children:
   - {fileID: 423857611}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &122468122
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,10 +968,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!4 &238892340 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 478504, guid: a01beabb998eda345973391aca41e425, type: 2}
-  m_PrefabInternal: {fileID: 377712698}
 --- !u!1001 &261000566
 Prefab:
   m_ObjectHideFlags: 0
@@ -1143,11 +1139,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478504, guid: a01beabb998eda345973391aca41e425, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 13699674, guid: a01beabb998eda345973391aca41e425, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a01beabb998eda345973391aca41e425, type: 2}
@@ -1810,21 +1802,6 @@ Prefab:
     - {fileID: 11407220, guid: ca6abd06a4b9bd945ae62f7e06575efd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ca6abd06a4b9bd945ae62f7e06575efd, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1180224739 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 140584, guid: a01beabb998eda345973391aca41e425, type: 2}
-  m_PrefabInternal: {fileID: 377712698}
---- !u!114 &1180224740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1180224739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea4712b3cfcb7943a802ecbbd69719d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1221183081
 Prefab:
   m_ObjectHideFlags: 0
@@ -9364,7 +9341,7 @@ Prefab:
     - target: {fileID: 11475662, guid: 9bf477013d2529f4ea2006d6d2f37813, type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 238892340}
+      objectReference: {fileID: 0}
     - target: {fileID: 199754, guid: 9bf477013d2529f4ea2006d6d2f37813, type: 2}
       propertyPath: m_TagString
       value: Enemy
