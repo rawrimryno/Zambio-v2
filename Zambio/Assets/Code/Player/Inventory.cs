@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public BossBar myBossBar;
     public AmmoContents ammoContents;
     public Dictionary<string, int> powerUpContents { get; private set; }
+    public GameControllerSingleton gc;
     //public delegate void ProcessPowerUpDelegate(PowerUp powerUp);
 
     void Awake()
@@ -20,6 +21,7 @@ public class Inventory : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        gc = GameControllerSingleton.get();
     }
 
     // Update is called once per frame
@@ -92,6 +94,7 @@ public class AmmoDesc
     public string sName { get; private set; }
     public string dName { get; private set; }
     public Sprite sprite { get; private set; }
+    GameControllerSingleton gc = GameControllerSingleton.get();
 
     public bool setID(int id)
     {
@@ -113,10 +116,19 @@ public class AmmoDesc
         desc = description;
         return true;
     }
-    public bool setSprite(Sprite powerUpSprite)
+    public bool setSprite(int id, Sprite ammoSprite)
     {
-        sprite = powerUpSprite;
-        return true;
+        bool result = false;
+        AmmoDesc thisAmmoDesc = new AmmoDesc(); 
+        if (gc.ammoByID.TryGetValue(id, out thisAmmoDesc))
+        {
+            result = true;
+            thisAmmoDesc.sprite = ammoSprite;
+            gc.ammoByID.Remove(id);
+            gc.ammoByID.Add(id, thisAmmoDesc);
+        }
+
+        return result;
     }
     public AmmoDesc()
     {
