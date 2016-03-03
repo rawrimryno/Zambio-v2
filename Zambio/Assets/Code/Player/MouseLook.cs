@@ -61,9 +61,15 @@ public class MouseLook : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             if (cursorLock == CursorLockMode.None)
+            {
                 cursorLock = CursorLockMode.Locked;
+                Time.timeScale = 1f;
+            }
             else
+            {
                 cursorLock = CursorLockMode.None;
+                Time.timeScale = 0f;
+            }
                 
         }
         if (cursorLock == CursorLockMode.Locked)
