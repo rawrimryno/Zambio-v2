@@ -111,8 +111,15 @@ public class HealthPanel : MonoBehaviour
         }
     }
 
+    public void getHealth()
+    {
+        health = gc.pc.health;
+        setHearts();
+        //Debug.Log("HealthPanel is Getting Health " + health);
+    }
     public void setHearts()
     {
+
         if (health < 0)
         {
             health = 0;
