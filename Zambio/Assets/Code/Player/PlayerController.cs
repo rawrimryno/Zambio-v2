@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         if (Input.GetButtonDown("PreviousAmmo"))
         {
             if (ammo-- < 1)
@@ -49,9 +48,6 @@ public class PlayerController : MonoBehaviour
             hpDisplay.setTextToAmmoName();
         }
         //switch case impossible because of specific button press -Ryan
-        if (Input.GetKeyDown("1"))
-        {
-=======
         // TODO: Key->Button
         if (Input.GetKeyDown("q"))
         {
@@ -71,51 +67,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             int ammo = UI.bullet;
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
             UI.changeAmmo(1);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetKeyDown("2"))
         {
-<<<<<<< HEAD
-=======
-            int ammo = UI.bullet;
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
             UI.changeAmmo(2);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetKeyDown("3"))
         {
-<<<<<<< HEAD
-=======
-            int ammo = UI.bullet;
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
             UI.changeAmmo(3);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetKeyDown("4"))
         {
-<<<<<<< HEAD
-=======
-            int ammo = UI.bullet;
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
             UI.changeAmmo(4);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetKeyDown("5"))
         {
-<<<<<<< HEAD
-=======
-            int ammo = UI.bullet;
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
             UI.changeAmmo(5);
             hpDisplay.setTextToAmmoName();
         }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 1302a9fd553586e41271255afc347e41c15571e4
+        
     }
     void OnTriggerEnter(Collider tColl)
     {
