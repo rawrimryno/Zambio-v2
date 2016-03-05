@@ -35,34 +35,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("PreviousAmmo"))
         {
-            if (ammo-- < 1)
+            if (ammo-1 < 1)
                 ammo = 6;
-            UI.changeAmmo(--ammo);
+            UI.changeAmmo(ammo--);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetButtonDown("NextAmmo"))
         {
-            if (ammo++ > 5)
+            if (ammo+1 > 5)
                 ammo = 0;
             UI.changeAmmo(ammo++);
             hpDisplay.setTextToAmmoName();
         }
         //switch case impossible because of specific button press -Ryan
-        // TODO: Key->Button
-        if (Input.GetKeyDown("q"))
-        {
-            int ammo = UI.bullet;
-            UI.changeAmmo(++ammo);
-            hpDisplay.setTextToAmmoName();
-        }
-
-        //Zach Added Below Cases
-        if (Input.GetKeyDown("e"))
-        {
-            int ammo = UI.bullet;
-            UI.changeAmmo(--ammo);
-            hpDisplay.setTextToAmmoName();
-        }
         //ShortCut Keys
         if (Input.GetKeyDown("1"))
         {

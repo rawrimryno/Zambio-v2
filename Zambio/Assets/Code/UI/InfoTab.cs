@@ -18,6 +18,7 @@ public class InfoTab : MonoBehaviour {
         RectTransform cPrC = compasPanel.GetComponent<RectTransform>();
         RectTransform bBrC = bossBar.GetComponent<RectTransform>();
         scaleItems();
+        toggleInfo();
     }
 	
 	void Update () {
