@@ -1113,6 +1113,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 478504, guid: a01beabb998eda345973391aca41e425, type: 2}
       propertyPath: m_LocalPosition.x
       value: 230.9915
@@ -1149,6 +1153,34 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: rateOfFire
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.data[3]
+      value: 
+      objectReference: {fileID: 164138, guid: b990f62824ee5e146a3f94dbac06227f, type: 2}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.data[2]
+      value: 
+      objectReference: {fileID: 177750, guid: 69a4dff3604a9134f82c8c258379c533, type: 2}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 166574, guid: 0f0a27c26b113dc49b7063a4623c4aaa, type: 2}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 103598, guid: 3661b059848cd634a9fddcf230d37044, type: 2}
+    - target: {fileID: 11428240, guid: a01beabb998eda345973391aca41e425, type: 2}
+      propertyPath: ammo.Array.data[4]
+      value: 
+      objectReference: {fileID: 178530, guid: 8f6dd27cf59f9d949826af5e0a4d3f67, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a01beabb998eda345973391aca41e425, type: 2}
   m_IsPrefabParent: 0
@@ -9171,7 +9203,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
