@@ -326,6 +326,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433102}
   - 114: {fileID: 11418892}
+  - 54: {fileID: 5413364}
   m_Layer: 0
   m_Name: blueShell
   m_TagString: Shell
@@ -1295,6 +1296,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128710}
   m_Mesh: {fileID: 4300008, guid: 630279bcb48776f478e10b1737dbd430, type: 3}
+--- !u!54 &5413364
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177750}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &11418892
 MonoBehaviour:
   m_ObjectHideFlags: 1

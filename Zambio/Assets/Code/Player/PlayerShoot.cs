@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerShoot : MonoBehaviour {
 
-    public GameObject ammo;
+    public GameObject[] ammo;
     public float bulletSpeed;
     public float rateOfFire;
     private float timer;
@@ -20,17 +20,16 @@ public class PlayerShoot : MonoBehaviour {
             rateOfFire = 1.0f;
         }
         timer = rateOfFire;
-        projectile = ammo.GetComponent<Rigidbody>();
+        projectile = ammo[3].GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0)
+        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && Time.timeScale!= 0f)
         {
             Rigidbody clone;
             clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
-            Debug.Log("You Fired!");
             rateOfFire = timer;
         }
         else
