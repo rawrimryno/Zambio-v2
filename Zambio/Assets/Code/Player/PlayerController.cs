@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     // Use this when you want to increase ammo or add Powerups already applied to character
     public int health { get; private set; }
 
+    private List<string> hasPowerUp;
+
     public Inventory myInventory
     {
         get; private set;
@@ -18,8 +21,10 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        myInventory = GetComponent<Inventory>();
+        hasPowerUp = new List<string>();
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        health = 20;
+        health = 20;        
     }
     // Use this for initialization
     void Start()
@@ -79,6 +84,8 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    // TRIGGERS!
     void OnTriggerEnter(Collider tColl)
     {
         if (tColl.CompareTag("PickUp"))
@@ -101,6 +108,16 @@ public class PlayerController : MonoBehaviour
                 health = 20;
                 UI.getHealth();
             }
+
+            if (thisPowerUp.isFire)
+            {
+                hasPowerUp.Add("Fire");
+            }
+            if (thisPowerUp.isMetal)
+            {
+                hasPowerUp.Add("Metal");
+            }
+
             tColl.gameObject.SetActive(false);
             Destroy(tColl.gameObject);
         }

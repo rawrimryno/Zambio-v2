@@ -6,10 +6,9 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    public BossBar myBossBar;
     public AmmoContents ammoContents;
     public Dictionary<string, int> powerUpContents { get; private set; }
-    public GameControllerSingleton gc;
+    private GameControllerSingleton gc;
     //public delegate void ProcessPowerUpDelegate(PowerUp powerUp);
 
     void Awake()
