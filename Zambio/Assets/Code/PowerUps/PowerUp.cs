@@ -40,7 +40,6 @@ public class PowerUp : MonoBehaviour
 
     }
 
-
 }
 public class PowerUpDesc
 {

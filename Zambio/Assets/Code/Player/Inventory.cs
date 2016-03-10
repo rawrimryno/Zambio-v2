@@ -34,7 +34,7 @@ public class Inventory : MonoBehaviour
     // PostCondition:  count-value associated with name-key will be incremented by one
     public void AddPower(PowerUp powerUp)
     {
-        int count = 0;
+        int count;
         if (powerUpContents.TryGetValue(powerUp.name, out count))
         {
             powerUpContents.Remove(powerUp.name);

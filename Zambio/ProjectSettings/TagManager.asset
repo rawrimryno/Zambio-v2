@@ -10,6 +10,8 @@ TagManager:
   - HealthPanel
   - Enemy
   - HealthStatusDisplay
+  - PickUp
+  - Bullet
   layers:
   - Default
   - TransparentFX

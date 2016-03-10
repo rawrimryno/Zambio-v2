@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         myInventory = GetComponent<Inventory>();
         hasPowerUp = new List<string>();
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        health = 20;        
+        health = 20;
     }
     // Use this for initialization
     void Start()
@@ -91,33 +91,47 @@ public class PlayerController : MonoBehaviour
         if (tColl.CompareTag("PickUp"))
         {
             PowerUp thisPowerUp = tColl.GetComponent<PowerUp>();
+            
+            //Health Check for Mushrooms
+            // finalHealth < 20
             // Gain Health
             if (health + thisPowerUp.numQtrHearts < 20)
             {
                 health += thisPowerUp.numQtrHearts;
                 UI.getHealth();
             }
-            else if (health + thisPowerUp.numQtrHearts < 0) // Rancid Mushroom
+            
+            // finalHealth < 0
+            // Rancid Mushroom
+            else if (health + thisPowerUp.numQtrHearts < 0)
             {
                 health = 0;
                 UI.getHealth();
                 deathSequence();
             }
+            
+            // finalHealth >= 20
             else // targetHealth >= 20
             {
                 health = 20;
                 UI.getHealth();
             }
 
-            if (thisPowerUp.isFire)
+            //Player already-has-checks for proper PowerUp placement
+            if (thisPowerUp.isFire || thisPowerUp.isMetal)
             {
-                hasPowerUp.Add("Fire");
-            }
-            if (thisPowerUp.isMetal)
-            {
-                hasPowerUp.Add("Metal");
+                if (hasPowerUp.Contains(thisPowerUp.name))
+                {
+                    // Already has it applied?  Put it in the inventory for safe keeping
+                    myInventory.AddPower(thisPowerUp);
+                }
+                else {
+                    // Apply to player
+                    hasPowerUp.Add(thisPowerUp.name);
+                }
             }
 
+            //Set the other thing to false, destroy when able
             tColl.gameObject.SetActive(false);
             Destroy(tColl.gameObject);
         }
