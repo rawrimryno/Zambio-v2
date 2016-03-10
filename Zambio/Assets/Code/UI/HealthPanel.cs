@@ -199,39 +199,39 @@ public class HealthPanel : MonoBehaviour
             switch (bullet)
             {
                 case 1:
-                    ammo[0].sprite = ammoIcons[0];
-                    ammo[1].sprite = ammoIcons[1];
+                    ammo[0].sprite = ammoIcons[4];
+                    ammo[1].sprite = ammoIcons[3];
                     ammo[2].sprite = ammoIcons[2];
-                    ammo[3].sprite = ammoIcons[3];
-                    ammo[4].sprite = ammoIcons[4];
+                    ammo[3].sprite = ammoIcons[1];
+                    ammo[4].sprite = ammoIcons[0];
                     break;
                 case 2:
-                    ammo[0].sprite = ammoIcons[4];
-                    ammo[1].sprite = ammoIcons[0];
+                    ammo[0].sprite = ammoIcons[3];
+                    ammo[1].sprite = ammoIcons[2];
                     ammo[2].sprite = ammoIcons[1];
-                    ammo[3].sprite = ammoIcons[2];
-                    ammo[4].sprite = ammoIcons[3];
+                    ammo[3].sprite = ammoIcons[0];
+                    ammo[4].sprite = ammoIcons[4];
                     break;
                 case 3:
-                    ammo[0].sprite = ammoIcons[3];
-                    ammo[1].sprite = ammoIcons[4];
+                    ammo[0].sprite = ammoIcons[2];
+                    ammo[1].sprite = ammoIcons[1];
                     ammo[2].sprite = ammoIcons[0];
-                    ammo[3].sprite = ammoIcons[1];
-                    ammo[4].sprite = ammoIcons[2];
+                    ammo[3].sprite = ammoIcons[4];
+                    ammo[4].sprite = ammoIcons[3];
                     break;
                 case 4:
-                    ammo[0].sprite = ammoIcons[2];
-                    ammo[1].sprite = ammoIcons[3];
+                    ammo[0].sprite = ammoIcons[1];
+                    ammo[1].sprite = ammoIcons[0];
                     ammo[2].sprite = ammoIcons[4];
-                    ammo[3].sprite = ammoIcons[0];
-                    ammo[4].sprite = ammoIcons[1];
+                    ammo[3].sprite = ammoIcons[3];
+                    ammo[4].sprite = ammoIcons[2];
                     break;
                 case 5:
-                    ammo[0].sprite = ammoIcons[1];
-                    ammo[1].sprite = ammoIcons[2];
+                    ammo[0].sprite = ammoIcons[0];
+                    ammo[1].sprite = ammoIcons[4];
                     ammo[2].sprite = ammoIcons[3];
-                    ammo[3].sprite = ammoIcons[4];
-                    ammo[4].sprite = ammoIcons[0];
+                    ammo[3].sprite = ammoIcons[2];
+                    ammo[4].sprite = ammoIcons[1];
                     break;
                 default:
                     break;

@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     HealthPanelDisplay hpDisplay;
     // Use this when you want to increase ammo or add Powerups already applied to character
     public int health { get; private set; }
-    int ammo = 0;
 
     private List<string> hasPowerUp;
 
@@ -37,10 +36,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammo = UI.bullet;
         // TODO: Key->Button
         if (Input.GetKeyDown("q"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(++ammo);
             hpDisplay.setTextToAmmoName();
         }
@@ -48,6 +47,7 @@ public class PlayerController : MonoBehaviour
         //Zach Added Below Cases
         if (Input.GetKeyDown("e"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(--ammo);
             hpDisplay.setTextToAmmoName();
         }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             UI.changeAmmo(ammo--);
             hpDisplay.setTextToAmmoName();
         }
-        else if (Input.GetButtonDown("NextAmmo"))
+        if (Input.GetButtonDown("NextAmmo"))
         {
             if (ammo+1 > 5)
                 ammo = 0;
@@ -69,30 +69,33 @@ public class PlayerController : MonoBehaviour
         //switch case impossible because of specific button press -Ryan
 
         //ShortCut Keys
-        // Added Else so they can't change to both at the same time
-        // Same for the previous and Next above
         if (Input.GetKeyDown("1"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(1);
             hpDisplay.setTextToAmmoName();
         }
-        else if (Input.GetKeyDown("2"))
+        if (Input.GetKeyDown("2"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(2);
             hpDisplay.setTextToAmmoName();
         }
-        else if (Input.GetKeyDown("3"))
+        if (Input.GetKeyDown("3"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(3);
             hpDisplay.setTextToAmmoName();
         }
-        else if (Input.GetKeyDown("4"))
+        if (Input.GetKeyDown("4"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(4);
             hpDisplay.setTextToAmmoName();
         }
-        else if (Input.GetKeyDown("5"))
+        if (Input.GetKeyDown("5"))
         {
+            int ammo = UI.bullet;
             UI.changeAmmo(5);
             hpDisplay.setTextToAmmoName();
         }
