@@ -936,7 +936,7 @@ MonoBehaviour:
   healthPanel: {fileID: 1677418557}
   compasPanel: {fileID: 1833222134}
   bossBar: {fileID: 45126083}
-  active: 1
+  active: 0
 --- !u!1 &490617592
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,10 +6,9 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    public BossBar myBossBar;
     public AmmoContents ammoContents;
     public Dictionary<string, int> powerUpContents { get; private set; }
-    public GameControllerSingleton gc;
+    private GameControllerSingleton gc;
     //public delegate void ProcessPowerUpDelegate(PowerUp powerUp);
 
     void Awake()
@@ -35,7 +34,7 @@ public class Inventory : MonoBehaviour
     // PostCondition:  count-value associated with name-key will be incremented by one
     public void AddPower(PowerUp powerUp)
     {
-        int count = 0;
+        int count;
         if (powerUpContents.TryGetValue(powerUp.name, out count))
         {
             powerUpContents.Remove(powerUp.name);
