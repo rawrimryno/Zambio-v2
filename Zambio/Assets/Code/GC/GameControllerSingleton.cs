@@ -38,7 +38,6 @@ public class GameControllerSingleton : ScriptableObject
 
     void Start()
     {
-        DontDestroyOnLoad(this);
         powerUpData = new Dictionary<string, PowerUpDesc>();
         powerUpByID = new Dictionary<int, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
