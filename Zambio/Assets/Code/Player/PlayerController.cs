@@ -33,25 +33,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ammo = UI.bullet;
+
         if (Input.GetButtonDown("PreviousAmmo"))
         {
             if (ammo-1 < 1)
                 ammo = 6;
-            UI.changeAmmo(ammo--);
+            UI.changeAmmo(--ammo);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetButtonDown("NextAmmo"))
         {
             if (ammo+1 > 5)
                 ammo = 0;
-            UI.changeAmmo(ammo++);
+            UI.changeAmmo(++ammo);
             hpDisplay.setTextToAmmoName();
         }
         //switch case impossible because of specific button press -Ryan
         //ShortCut Keys
         if (Input.GetKeyDown("1"))
         {
-            int ammo = UI.bullet;
             UI.changeAmmo(1);
             hpDisplay.setTextToAmmoName();
         }
