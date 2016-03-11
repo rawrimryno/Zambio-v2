@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour {
                 moveDirection.y = jumpSpeed;
         }else
         {
+            moveDirection.x = Input.GetAxis("Horizontal")*speed;
+            moveDirection.z = Input.GetAxis("Vertical")*speed;
+            moveDirection = transform.TransformDirection(moveDirection);
             controller.Move(moveDirection * Time.deltaTime);
         }
 

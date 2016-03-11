@@ -374,11 +374,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PreviousAmmo
-    descriptiveName: previous ammo?
+    m_Name: NextAmmo
+    descriptiveName: NextAmmo
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: q
+    positiveButton: e
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1
@@ -390,11 +390,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: NextAmmo
-    descriptiveName: 
+    m_Name: PreviousAmmo
+    descriptiveName: PreviousAmmo
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: e
+    positiveButton: q
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1
