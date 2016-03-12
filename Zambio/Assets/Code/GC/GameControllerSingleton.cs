@@ -23,7 +23,6 @@ public class GameControllerSingleton : ScriptableObject
     public PlayerController pc;
 
 
-    bool hasPC = false;
 
     // Use this for initialization
 
@@ -48,23 +47,14 @@ public class GameControllerSingleton : ScriptableObject
         powerUpByID = new Dictionary<int, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
         ammoByID = new Dictionary<int, AmmoDesc>();
-        // Do initial load up stuff
-        if (!hasPC)
-        {
-            //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            hasPC = true;
-        }
+
+        pc = FindObjectOfType<PlayerController>();
 
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (!hasPC)
-        {
-            pc = FindObjectOfType<PlayerController>();
-            //playerTransform = pc.gameObject.transform;
-        }
         // Debug.Log("GCS Updating");
     }
 
