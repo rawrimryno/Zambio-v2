@@ -9,6 +9,7 @@ public class PowerUp : MonoBehaviour
     public int defenseModifier; // But just in case I don't pull it off, Metal Mario
     public bool isFire;         // Fire Flower
     public bool isMetal;        // It's a metal
+
     public int myPowerUpID
     {
         get; private set;
