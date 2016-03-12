@@ -37,6 +37,7 @@ public class PlayerShoot : MonoBehaviour {
             Rigidbody clone;
             projectile = ammo[ammoNum].GetComponent<Rigidbody>();
             clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
+            //clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
             rateOfFire = timer;
         }
