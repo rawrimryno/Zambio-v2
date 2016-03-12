@@ -72,6 +72,7 @@
     <Compile Include="Assets\Code\TagAdder.cs" />
     <Compile Include="Assets\Code\UI\BossBar.cs" />
     <Compile Include="Assets\Code\UI\HealthPanel.cs" />
+    <Compile Include="Assets\Code\UI\HealthPanelDisplay.cs" />
     <Compile Include="Assets\Code\UI\InfoTab.cs" />
     <Compile Include="Assets\Code\UI\Player\Inventory.cs" />
     <Compile Include="Assets\Code\UI\Player\MouseLook.cs" />
@@ -80,7 +81,6 @@
     <Compile Include="Assets\Code\UI\Player\PlayerShoot.cs" />
     <Compile Include="Assets\Code\UI\WarnTop.cs" />
     <Compile Include="Assets\EnemySpawner.cs" />
-    <Compile Include="Assets\HealthPanelDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Text\ammo.txt" />

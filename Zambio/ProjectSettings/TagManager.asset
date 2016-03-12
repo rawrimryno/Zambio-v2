@@ -6,12 +6,11 @@ TagManager:
   tags:
   - Shell
   - Mushroom
+  - FireFlower
   - HealthPanel
   - Enemy
   - HealthStatusDisplay
   - PickUp
-  - metalMario
-  - fireFlower
   layers:
   - Default
   - TransparentFX

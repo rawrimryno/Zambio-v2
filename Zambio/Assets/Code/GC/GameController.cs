@@ -12,8 +12,10 @@ public class GameController : MonoBehaviour
     GameControllerSingleton gc;
 
     public TextAsset powerUpFile, ammoFile;
+    public Sprite[] AmmoSpriteList;
+    public Sprite[] PowerUpSpriteList;
 
-    private bool UIenabled = false;
+    private bool UIenabled = true;
 
     void Awake()
     {
@@ -25,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         gc = GameControllerSingleton.get();
 
-        gc.loadTexts(powerUpFile, ammoFile);
+        gc.loadTexts(powerUpFile, ammoFile, AmmoSpriteList, PowerUpSpriteList);
     }
 
     // Update is called once per frame
@@ -33,19 +35,20 @@ public class GameController : MonoBehaviour
     {
         gc.Update();
         // UI Toggle
-        if (Input.GetButtonDown("toggleUI"))
-        {
-            if (UIenabled)
-            {
-                SceneManager.UnloadScene("UI");
-                UIenabled = false;
-            }
-            else
-            {
-                SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-                UIenabled = true;
-            }
-        }
+        // UI should already be loaded through player controller -Ryan
+        //if (Input.GetButtonDown("toggleUI"))
+        //{
+        //    if (UIenabled)
+        //    {
+        //        SceneManager.UnloadScene("UI");
+        //        UIenabled = false;
+        //    }
+        //    else
+        //    {
+        //        SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        //        UIenabled = true;
+        //    }
+        //}
     }
 }
 [Serializable]

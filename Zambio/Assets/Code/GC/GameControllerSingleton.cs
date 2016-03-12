@@ -15,12 +15,14 @@ public class GameControllerSingleton : ScriptableObject
     public int numPowerUps { get; private set; }
     //public Dictionary<string, AmmoDesc> ammoData;
     public Dictionary<string, AmmoDesc> ammoData;
-    public Dictionary<int, AmmoDesc> ammoByID { get; private set; }
+    public Dictionary<int, AmmoDesc> ammoByID;
     public int numAmmo
     {
         get; private set;
     }
     public PlayerController pc;
+
+
     bool hasPC = false;
 
     // Use this for initialization
@@ -35,6 +37,10 @@ public class GameControllerSingleton : ScriptableObject
         return _instance;
     }
 
+    void Awake()
+    {
+
+    }
 
     void Start()
     {
@@ -43,6 +49,12 @@ public class GameControllerSingleton : ScriptableObject
         ammoData = new Dictionary<string, AmmoDesc>();
         ammoByID = new Dictionary<int, AmmoDesc>();
         // Do initial load up stuff
+        if (!hasPC)
+        {
+            pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            hasPC = true;
+        }
+
     }
 
     // Update is called once per frame
@@ -51,6 +63,7 @@ public class GameControllerSingleton : ScriptableObject
         if (!hasPC)
         {
             pc = FindObjectOfType<PlayerController>();
+            //playerTransform = pc.gameObject.transform;
         }
         // Debug.Log("GCS Updating");
     }
@@ -71,9 +84,9 @@ public class GameControllerSingleton : ScriptableObject
         }
         return rName;
     }
-    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile)
+    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile, Sprite[] ammoSpr, Sprite[] powerUpSpr)
     {
-        int i = 0;
+        int i = 0, id;
         string shortName, dispName, desc;
         StringReader sr = new StringReader(powerUpFile.text);
         while ((shortName = sr.ReadLine()) != null && shortName[0] != '~')
@@ -84,15 +97,19 @@ public class GameControllerSingleton : ScriptableObject
                 tempPowerUp.setDName(dispName);
             if ((desc = sr.ReadLine()) != null)
                 tempPowerUp.setDesc(desc);
-            tempPowerUp.setID( Convert.ToInt32(sr.ReadLine()) );
-            tempPowerUp.setSprite(null);
+
+            id = Convert.ToInt32(sr.ReadLine());
+            tempPowerUp.setID(id);
+
             TagAdder.AddTag(shortName);
             powerUpData.Add(shortName, tempPowerUp);
-            powerUpByID.Add( tempPowerUp.ID, tempPowerUp);
+            powerUpByID.Add(tempPowerUp.ID, tempPowerUp);
+            tempPowerUp.setSprite(powerUpSpr[id]);
             //Debug.Log(i);
-            //powerUpData.Add(tempPowerUp.sName, tempPowerUp);
-        }
 
+        }
+        i = 0;
+        // AMMO SECTION
         StringReader asr = new StringReader(ammoFile.text);
         while ((shortName = asr.ReadLine()) != null)
         {
@@ -102,16 +119,43 @@ public class GameControllerSingleton : ScriptableObject
                 tempAmmoDesc.setDName(dispName);
             if ((desc = asr.ReadLine()) != null)
                 tempAmmoDesc.setDesc(desc);
-            tempAmmoDesc.setID(i++);
-            tempAmmoDesc.setSprite(null);
+            tempAmmoDesc.setID(i);
             //            ammoData.Add(tempAmmoDesc.sName, tempAmmoDesc);
-            TagAdder.AddTag(shortName);
             ammoData.Add(shortName, tempAmmoDesc);
-            ammoByID.Add(i - 1, tempAmmoDesc);
+            ammoByID.Add(i, tempAmmoDesc);
+            tempAmmoDesc.setSprite(i, ammoSpr[i++]);
 
-            // Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
+
+            //Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
 
         }
+        numAmmo = i;
         // Debug.Log("Tried to loadAmmo and PowerUps");
+    }
+    // Loading Sprites only at the beginning
+    private Sprite getUISprite(string sName)
+    {
+        Sprite rSpr = Resources.Load(sName) as Sprite;
+        if (rSpr == null)
+        {
+            Debug.Log("No Sprite loaded");
+        }
+        return rSpr;
+    }
+
+    // It feels wrong to write this..
+    public Sprite getAmmoSpriteByID(int ammoID)
+    {
+        Sprite rSprite = new Sprite();
+        AmmoDesc tmp;
+        if (ammoByID.TryGetValue(ammoID, out tmp))
+        {
+            rSprite = tmp.sprite;
+        }
+        else
+        {
+            Debug.Log("getAmmoSpriteByID failed for " + ammoID);
+        }
+        return rSprite;
     }
 }
