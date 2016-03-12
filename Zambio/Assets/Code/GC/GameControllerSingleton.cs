@@ -51,7 +51,7 @@ public class GameControllerSingleton : ScriptableObject
         // Do initial load up stuff
         if (!hasPC)
         {
-            pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             hasPC = true;
         }
 
