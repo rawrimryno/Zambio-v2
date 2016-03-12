@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour
     private short affectVector; // Yeah, I'm doing it
     public int defenseModifier; // But just in case I don't pull it off, Metal Mario
     public bool isFire;         // Fire Flower
-    public bool isFeather;      // It's a feather, isn't it?
+    public bool isMetal;      // It's a feather, isn't it?
     public int myPowerUpID
     {
         get; private set;
