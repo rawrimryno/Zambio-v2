@@ -22,6 +22,7 @@ public class AmmoScript : MonoBehaviour
         {
             spinFactor = 15f;
         }
+
         if (this.gameObject.name == "redShell")
         {
             meshAgent = GetComponent<NavMeshAgent>();

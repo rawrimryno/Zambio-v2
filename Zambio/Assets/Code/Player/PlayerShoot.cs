@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour {
     private int ammoNum;
     private HealthPanel UI;
     private HealthPanelDisplay hpDisplay;
+    private GameControllerSingleton gc;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class PlayerShoot : MonoBehaviour {
         }
         timer = rateOfFire;
         projectile = ammo[0].GetComponent<Rigidbody>();
+        gc = GameControllerSingleton.get();
 	}
 	
 	// Update is called once per frame
@@ -37,7 +39,7 @@ public class PlayerShoot : MonoBehaviour {
             Rigidbody clone;
             projectile = ammo[ammoNum].GetComponent<Rigidbody>();
             clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
-            //clone = Instantiate(projectile, (transform.position), transform.rotation) as Rigidbody;
+            clone.name = projectile.name;
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
             rateOfFire = timer;
         }

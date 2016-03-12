@@ -61,7 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Ammo\AmmoScript.cs" />
+    <Compile Include="Assets\Code\Ammo\AmmoScript.cs" />
     <Compile Include="Assets\Code\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Code\Enemies\EnemySpawner.cs" />
     <Compile Include="Assets\Code\Environment\Environment.cs" />
