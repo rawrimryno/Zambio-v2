@@ -93,6 +93,7 @@ GameObject:
   - 4: {fileID: 403298}
   - 122: {fileID: 12290306}
   - 114: {fileID: 11489956}
+  - 65: {fileID: 6549248}
   m_Layer: 0
   m_Name: rancidMushroom
   m_TagString: PickUp
@@ -309,6 +310,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144030}
   m_Mesh: {fileID: 4300004, guid: ccf6d8464268f7c408428fbda0c34b76, type: 3}
+--- !u!65 &6549248
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11489956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,9 +336,7 @@ MonoBehaviour:
   numQtrHearts: -4
   defenseModifier: 0
   isFire: 0
-  isFeather: 0
   isMetal: 0
-  myPowerUpID: 0
 --- !u!122 &12290306
 Halo:
   m_ObjectHideFlags: 1
@@ -359,6 +370,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: numQtrHearts
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

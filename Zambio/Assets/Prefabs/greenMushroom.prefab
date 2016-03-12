@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 470290}
   - 122: {fileID: 12287624}
   - 114: {fileID: 11455432}
+  - 65: {fileID: 6501458}
   m_Layer: 0
   m_Name: greenMushroom
   m_TagString: PickUp
@@ -309,6 +310,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122550}
   m_Mesh: {fileID: 4300000, guid: b5bcde9787ddcc4488b138ba5ffd8e57, type: 3}
+--- !u!65 &6501458
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11455432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,9 +336,7 @@ MonoBehaviour:
   numQtrHearts: 20
   defenseModifier: 0
   isFire: 0
-  isFeather: 0
   isMetal: 0
-  myPowerUpID: 0
 --- !u!122 &12287624
 Halo:
   m_ObjectHideFlags: 1
@@ -359,6 +370,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: numQtrHearts
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
