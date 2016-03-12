@@ -1322,7 +1322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcedbc8fa6f42a47a45017e790e0a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinFactor: 0
+  hitCounts: 5
+  speed: 20
+  spinFactor: 30
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1333,6 +1335,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Shell
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitCounts
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spinFactor
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
