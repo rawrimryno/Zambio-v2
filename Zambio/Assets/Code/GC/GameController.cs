@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public Sprite[] AmmoSpriteList;
     public Sprite[] PowerUpSpriteList;
 
-    private bool UIenabled = true;
+    //private bool UIenabled = true;
 
     void Awake()
     {

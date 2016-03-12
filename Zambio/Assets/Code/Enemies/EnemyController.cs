@@ -10,10 +10,20 @@ public class EnemyController : MonoBehaviour {
         gc = GameControllerSingleton.get();
         enemyNav = GetComponent<NavAgentGoToTransform>();
         enemyNav.target = gc.pc.transform;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+
 	}
+
+    void OnTriggerEnter( Collider coll )
+    {
+        if (coll.CompareTag("Player"))
+        {
+            gc.pc.adjustHealth(-1);
+        }
+    }
 }

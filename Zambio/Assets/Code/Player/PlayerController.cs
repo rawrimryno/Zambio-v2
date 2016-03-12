@@ -119,6 +119,11 @@ public class PlayerController : MonoBehaviour
             Destroy(tColl.gameObject);
         }
     }
+
+    public void adjustHealth(int amt)
+    {
+        health += amt;
+    }
     void deathSequence()
     {
         //Game Over

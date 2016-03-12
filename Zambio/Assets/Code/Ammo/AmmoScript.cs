@@ -13,9 +13,21 @@ public class AmmoScript : MonoBehaviour
     public float spinFactor;
 
     NavMeshAgent meshAgent;
+    NavAgentGoToTransform navAgent;
+    EnemyController target;
+
+    bool onGround = false;
+
     // Called at the same time if it is in a sceneload, for all objects being loaded
     // Good to place calcs that are independent from other game objects here
     void Awake()
+    {
+        hitsLeft = hitCounts;
+        meshAgent.enabled = false;
+    }
+
+    // Use this for initialization
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         if (Math.Abs(spinFactor) <= 0)
@@ -25,15 +37,15 @@ public class AmmoScript : MonoBehaviour
 
         if (this.gameObject.name == "redShell")
         {
-            meshAgent = GetComponent<NavMeshAgent>();
-            meshAgent.speed = speed;
-        }
-    }
+            if (target = FindObjectOfType<EnemyController>())
+            {
+                meshAgent = GetComponent<NavMeshAgent>();
+                navAgent = GetComponent<NavAgentGoToTransform>();
+                meshAgent.speed = speed;
+                navAgent.target = target.gameObject.transform;
 
-    // Use this for initialization
-    void Start()
-    {
-        rb.AddTorque(rb.mass * spinFactor * Vector3.up);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -56,6 +68,12 @@ public class AmmoScript : MonoBehaviour
         {
             cInfo.gameObject.SetActive(false);
             Destroy(cInfo.gameObject);
+
+            if ( --hitsLeft < 1)
+            {
+                gameObject.SetActive(false);
+                Destroy(this);
+            }
         }
     }
 }

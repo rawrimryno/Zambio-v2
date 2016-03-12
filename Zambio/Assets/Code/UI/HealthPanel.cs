@@ -24,7 +24,7 @@ public class HealthPanel : MonoBehaviour
 
     private float coolDownCur;
 
-    private bool init = false;
+    //private bool init = false;
 
     void Start()
     {
