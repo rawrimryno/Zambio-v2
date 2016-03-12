@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     // Use this when you want to increase ammo or add Powerups already applied to character
     public int health { get; private set; }
     private int ammo;
+    private List<PowerUp> myPowerUps;
 
     public Inventory myInventory
     {
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
         UI = GameObject.FindGameObjectWithTag("HealthPanel").GetComponent<HealthPanel>();
         hpDisplay = GameObject.FindGameObjectWithTag("HealthStatusDisplay").GetComponent<HealthPanelDisplay>();
         ammo = UI.bullet;
+        myInventory = GetComponent<Inventory>();
+        myPowerUps = new List<PowerUp>();
     }
 
     // Update is called once per frame
@@ -100,6 +104,17 @@ public class PlayerController : MonoBehaviour
                 health = 20;
                 UI.getHealth();
             }
+
+            // Check powerup applied, add to to inventory if not, else add to powerup applied
+            if ( thisPowerUp.isFire || thisPowerUp.isMetal )
+            {
+                if ( myPowerUps.Contains(thisPowerUp) )
+                {
+                    myInventory.AddPower(thisPowerUp);
+                }
+                myPowerUps.Add(thisPowerUp);                
+            }
+
             tColl.gameObject.SetActive(false);
             Destroy(tColl.gameObject);
         }
