@@ -78,7 +78,6 @@ GameObject:
   - 4: {fileID: 461020}
   - 33: {fileID: 3317854}
   - 23: {fileID: 2313898}
-  - 64: {fileID: 6417572}
   m_Layer: 0
   m_Name: polySurface3
   m_TagString: Untagged
@@ -93,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 245.44762, y: 0.82, z: 252.92325}
+  m_LocalPosition: {x: 221.34552, y: 0.0013548732, z: 237.83769}
   m_LocalScale: {x: 3.1295846, y: 1.9003166, z: 3.1295846}
   m_Children:
   - {fileID: 468196}
@@ -288,18 +287,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: c725057c4743a0540aa1e35ade09210d, type: 3}
---- !u!64 &6417572
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168682}
-  m_Material: {fileID: 13400000, guid: bdf8a53dce3c1b64786bd20d12eb6466, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 4300004, guid: c725057c4743a0540aa1e35ade09210d, type: 3}
 --- !u!114 &11400954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcedbc8fa6f42a47a45017e790e0a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCounts: 0
+  speed: 0
   spinFactor: 0
 --- !u!1001 &100100000
 Prefab:

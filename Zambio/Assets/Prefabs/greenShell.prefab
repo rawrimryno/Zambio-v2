@@ -28,7 +28,6 @@ GameObject:
   - 4: {fileID: 488444}
   - 33: {fileID: 3321618}
   - 23: {fileID: 2330268}
-  - 64: {fileID: 6422002}
   m_Layer: 0
   m_Name: polySurface3
   m_TagString: Untagged
@@ -276,18 +275,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: c725057c4743a0540aa1e35ade09210d, type: 3}
---- !u!64 &6422002
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131910}
-  m_Material: {fileID: 13400000, guid: bdf8a53dce3c1b64786bd20d12eb6466, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 4300004, guid: c725057c4743a0540aa1e35ade09210d, type: 3}
 --- !u!64 &6476098
 MeshCollider:
   m_ObjectHideFlags: 1

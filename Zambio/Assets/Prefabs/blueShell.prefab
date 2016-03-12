@@ -327,6 +327,7 @@ GameObject:
   - 4: {fileID: 433102}
   - 114: {fileID: 11418892}
   - 54: {fileID: 5413364}
+  - 64: {fileID: 6458210}
   m_Layer: 0
   m_Name: blueShell
   m_TagString: Shell
@@ -359,6 +360,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416466}
+  - 64: {fileID: 6419924}
   m_Layer: 0
   m_Name: group1
   m_TagString: Untagged
@@ -389,6 +391,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456736}
+  - 64: {fileID: 6412498}
   m_Layer: 0
   m_Name: group
   m_TagString: Untagged
@@ -404,6 +407,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 430036}
+  - 64: {fileID: 6477870}
   m_Layer: 0
   m_Name: group2
   m_TagString: Untagged
@@ -1311,6 +1315,54 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &6412498
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
+--- !u!64 &6419924
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
+--- !u!64 &6458210
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
+--- !u!64 &6477870
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 0}
 --- !u!114 &11418892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1322,6 +1374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcedbc8fa6f42a47a45017e790e0a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCounts: 0
+  speed: 0
   spinFactor: 0
 --- !u!1001 &100100000
 Prefab:
@@ -1333,6 +1387,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Shell
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
