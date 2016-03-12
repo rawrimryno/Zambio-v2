@@ -106,6 +106,23 @@ ModelImporter:
     4300028: pCone9
     4300030: pCone10
     4300032: pCone11
+    6400000: pasted__polySurface1
+    6400002: pasted__polySurface2
+    6400004: pasted__polySurface3
+    6400006: pasted__polySurface4
+    6400008: pasted__polySurface5
+    6400010: pasted__polySurface6
+    6400012: pCone1
+    6400014: pCone10
+    6400016: pCone11
+    6400018: pCone2
+    6400020: pCone3
+    6400022: pCone4
+    6400024: pCone5
+    6400026: pCone6
+    6400028: pCone7
+    6400030: pCone8
+    6400032: pCone9
   materials:
     importMaterials: 1
     materialName: 0
@@ -130,9 +147,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 12
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
