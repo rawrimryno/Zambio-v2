@@ -15,7 +15,7 @@ public class HealthPanel : MonoBehaviour
 
 
     /* Begin Todd Testing Section */
-    GameControllerSingleton gc;
+    //GameControllerSingleton gc;
 
 
     public Sprite[] ammoIcons;
@@ -24,7 +24,7 @@ public class HealthPanel : MonoBehaviour
 
     private float coolDownCur;
 
-    private bool init = false;
+    //private bool init = false;
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class HealthPanel : MonoBehaviour
         coolDownCur = 0.5f; // Zach's original
         bullet = 1;
 
-        gc = GameControllerSingleton.get();
+        //gc = GameControllerSingleton.get();
         //ammoIcons = new Sprite[gc.numAmmo];
 
         //if (!init)
@@ -124,7 +124,7 @@ public class HealthPanel : MonoBehaviour
 
     public void getHealth()
     {
-        health = gc.pc.health;
+        //health = gc.pc.health;
         setHearts();
         //Debug.Log("HealthPanel is Getting Health " + health);
     }
