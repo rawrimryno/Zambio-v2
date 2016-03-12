@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     GameControllerSingleton gc;
     NavAgentGoToTransform enemyNav;
+    Rigidbody rb;
 
     private bool hasLeftSpawner = true;
     private bool init = false;
@@ -12,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     public float pipeHeight = 5;
 
-    
+
 
     void Awake()
     {
@@ -24,7 +25,10 @@ public class EnemyController : MonoBehaviour
     {
         gc = GameControllerSingleton.get();
         enemyNav = GetComponent<NavAgentGoToTransform>();
-        enemyNav.target = gc.pc.transform;
+        rb = GetComponent<Rigidbody>();
+
+        acquirePlayer();
+        enemyNav.enabled = false;
     }
 
     // Update is called once per frame
@@ -45,18 +49,34 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerStay(Collider oCol)
     {
-        float randVal = Random.value*Mathf.PI;
+        float randVal = Random.value * Mathf.PI;
 
-        if (!hasLeftSpawner && !init && yDisp < pipeHeight)
+        if (!hasLeftSpawner && oCol.CompareTag("Spawner"))
         {
-            transform.position += new Vector3(0, 1, 0);
-            yDisp += 1;
+            if (!init && yDisp < pipeHeight)
+            {
+                transform.position += new Vector3(0, 1, 0);
+                yDisp += 1;
+            }
+            else
+            {
+                rb.AddForce(Mathf.Cos(randVal), 0, Mathf.Sin(randVal));
+            }
         }
-        else
+    }
+    void OnTriggerExit(Collider oCol)
+    {
+        if (oCol.CompareTag("Spawner"))
         {
-            transform.position += new Vector3(Mathf.Cos(randVal), 0, Mathf.Sin(randVal));
-
+            hasLeftSpawner = true;
+            init = true;
+            enemyNav.enabled = true;
+            acquirePlayer();
         }
     }
 
+    void acquirePlayer()
+    {
+        enemyNav.target = gc.pc.transform;
+    }
 }
