@@ -50,6 +50,8 @@ public class PowerUpDesc
     public string sName { get; private set; }
     public string dName { get; private set; }
     public Sprite sprite { get; private set; }
+    public GameObject prefab { get; private set; }
+    GameControllerSingleton gc = GameControllerSingleton.get();
 
     public bool setID(int id)
     {
@@ -71,10 +73,39 @@ public class PowerUpDesc
         desc = description;
         return true;
     }
-    public bool setSprite(Sprite powerUpSprite)
+    public bool setSprite(int id, Sprite powerUpSprite)
     {
-        sprite = powerUpSprite;
-        return true;
+        bool result = false;
+        PowerUpDesc powerUpDesc = new PowerUpDesc();
+        if (gc.powerUpByID.TryGetValue(id, out powerUpDesc))
+        {
+            result = true;
+            powerUpDesc.sprite = powerUpSprite;
+            gc.powerUpByID.Remove(id);
+            gc.powerUpByID.Add(id, powerUpDesc);
+        }
+
+        return result;
     }
 
+    public bool setPrefab( int id, GameObject inPrefab)
+    {
+        bool result = false;
+        PowerUpDesc powerUpDesc = new PowerUpDesc();
+        if (gc.powerUpByID.TryGetValue(id, out powerUpDesc))
+        {
+            result = true;
+            powerUpDesc.prefab = inPrefab;
+            gc.powerUpByID.Remove(id);
+            gc.powerUpByID.Add(id, powerUpDesc);
+        }
+
+        return result;
+    }
+
+    public PowerUpDesc()
+    {
+        sprite = null;
+        prefab = null;
+    }
 }

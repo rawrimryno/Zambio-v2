@@ -93,6 +93,7 @@ public class AmmoDesc
     public string sName { get; private set; }
     public string dName { get; private set; }
     public Sprite sprite { get; private set; }
+    public GameObject prefab { get; private set; }
     GameControllerSingleton gc = GameControllerSingleton.get();
 
     public bool setID(int id)
@@ -129,6 +130,22 @@ public class AmmoDesc
 
         return result;
     }
+
+    public bool setPrefab(int id, GameObject inPrefab)
+    {
+        bool result = false;
+        AmmoDesc ammoDesc = new AmmoDesc();
+        if (gc.ammoByID.TryGetValue(id, out ammoDesc))
+        {
+            result = true;
+            ammoDesc.prefab = inPrefab;
+            gc.ammoByID.Remove(id);
+            gc.ammoByID.Add(id, ammoDesc);
+        }
+
+        return result;
+    }
+
     public AmmoDesc()
     {
         sprite = null;

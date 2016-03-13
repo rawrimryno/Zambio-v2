@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour {
     private HealthPanel UI;
     private HealthPanelDisplay hpDisplay;
     private GameControllerSingleton gc;
+    private bool ammoInit = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class PlayerShoot : MonoBehaviour {
         {
             rateOfFire = 1.0f;
         }
+        
         timer = rateOfFire;
         projectile = ammo[0].GetComponent<Rigidbody>();
         gc = GameControllerSingleton.get();
@@ -33,8 +35,24 @@ public class PlayerShoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if ( !ammoInit)
+        {
+            int i = 0;
+            AmmoDesc tempAmmoDesc;
+            while (i < gc.numAmmo)
+            {
+                if (gc.ammoByID.TryGetValue(i, out tempAmmoDesc))
+                {
+                    ammo[i] = tempAmmoDesc.prefab;
+                    i++;
+                }
+            }
+            ammoInit = true;
+        }
+
         ammoNum = UI.bullet-1;
-        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && Time.timeScale!= 0f)
+        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && !gc.isPaused)
         {
             Rigidbody clone;
             projectile = ammo[ammoNum].GetComponent<Rigidbody>();
