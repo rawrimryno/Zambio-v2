@@ -46,6 +46,7 @@ GameObject:
   - 4: {fileID: 405966}
   - 114: {fileID: 11479750}
   - 54: {fileID: 5488980}
+  - 135: {fileID: 13599246}
   m_Layer: 0
   m_Name: greenShell
   m_TagString: Untagged
@@ -210,13 +211,13 @@ MeshRenderer:
   m_GameObject: {fileID: 153266}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 8b762fe04d79f440287d1ce7069ccb64, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 3
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
@@ -272,7 +273,7 @@ MeshCollider:
   m_GameObject: {fileID: 153266}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: fecc8ad6d3c3649099cd4e3ac72740c7, type: 3}
@@ -284,7 +285,7 @@ MeshCollider:
   m_GameObject: {fileID: 131910}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300004, guid: fecc8ad6d3c3649099cd4e3ac72740c7, type: 3}
@@ -296,7 +297,7 @@ MeshCollider:
   m_GameObject: {fileID: 100590}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300002, guid: fecc8ad6d3c3649099cd4e3ac72740c7, type: 3}
@@ -314,6 +315,20 @@ MonoBehaviour:
   hitCounts: 1
   speed: 10
   spinFactor: 5
+  age: 0
+  lifetime: 4
+--- !u!135 &13599246
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -344,6 +359,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ReflectionProbeUsage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
