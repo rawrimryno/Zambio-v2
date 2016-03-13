@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public int health { get; private set; }
     private int ammo;
     private List<PowerUp> myPowerUps;
+    GameControllerSingleton gc;
+
+    private bool dead = false;
+
 
     public Inventory myInventory
     {
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
         health = 20;
+        gc = GameControllerSingleton.get();
     }
     // Use this for initialization
     void Start()
@@ -41,14 +46,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("PreviousAmmo"))
         {
-            if (ammo-1 < 1)
+            if (ammo - 1 < 1)
                 ammo = 6;
             UI.changeAmmo(--ammo);
             hpDisplay.setTextToAmmoName();
         }
         if (Input.GetButtonDown("NextAmmo"))
         {
-            if (ammo+1 > 5)
+            if (ammo + 1 > 5)
                 ammo = 0;
             UI.changeAmmo(++ammo);
             hpDisplay.setTextToAmmoName();
@@ -80,7 +85,7 @@ public class PlayerController : MonoBehaviour
             UI.changeAmmo(5);
             hpDisplay.setTextToAmmoName();
         }
-        
+
     }
     void OnTriggerEnter(Collider tColl)
     {
@@ -90,29 +95,26 @@ public class PlayerController : MonoBehaviour
             // Gain Health
             if (health + thisPowerUp.numQtrHearts < 20)
             {
-                health += thisPowerUp.numQtrHearts;
+                setHealth(health + thisPowerUp.numQtrHearts);
                 UI.getHealth();
             }
-            else if (health + thisPowerUp.numQtrHearts < 0) // Rancid Mushroom
+            else if (health + thisPowerUp.numQtrHearts <= 0) // Rancid Mushroom
             {
-                health = 0;
-                UI.getHealth();
-                deathSequence();
+                setHealth(0);
             }
             else // targetHealth >= 20
             {
-                health = 20;
-                UI.getHealth();
+                setHealth(20);
             }
 
             // Check powerup applied, add to to inventory if not, else add to powerup applied
-            if ( thisPowerUp.isFire || thisPowerUp.isMetal )
+            if (thisPowerUp.isFire || thisPowerUp.isMetal)
             {
-                if ( myPowerUps.Contains(thisPowerUp) )
+                if (myPowerUps.Contains(thisPowerUp))
                 {
                     myInventory.AddPower(thisPowerUp);
                 }
-                myPowerUps.Add(thisPowerUp);                
+                myPowerUps.Add(thisPowerUp);
             }
 
             tColl.gameObject.SetActive(false);
@@ -120,13 +122,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void setHealth(int amt)
+    {
+        health = amt;
+        UI.getHealth();
+        if (health < 1)
+        {
+            deathSequence();
+            dead = true;
+        }
+    }
+
     public void adjustHealth(int amt)
     {
+        //Debug.Log("Adjusting Health by " + amt);
         health += amt;
+        UI.getHealth();
+        if ( health < 1)
+        {
+            deathSequence();
+            dead = true;
+        }
+
     }
     void deathSequence()
     {
         //Game Over
-
+        gc.Pause();
+        //SceneManager.UnloadScene("UI");
+        //SceneManager.UnloadScene("Level One");
+        //SceneManager.LoadScene("Level One");
     }
 }

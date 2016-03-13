@@ -13,11 +13,22 @@ public class EnemyController : MonoBehaviour
 
     public float pipeHeight = 5;
 
-
+    public int damage;
+    public float hitTime;  // time for one hit
+    private float coolDown=0;
 
     void Awake()
     {
         Random.seed = (int)Time.realtimeSinceStartup;
+
+        if (damage <= 0)
+        {
+            damage = 1;
+        }
+        if (hitTime <= 0)
+        {
+            hitTime = 2.0f;
+        }
     }
 
     // Use this for initialization
@@ -32,7 +43,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (coolDown > 0)
+        {
+            coolDown -= Time.deltaTime;
+        }
 
 
     }
@@ -43,6 +57,11 @@ public class EnemyController : MonoBehaviour
         {
             hasLeftSpawner = false;
             enemyNav.enabled = false;
+        }
+
+        if (oCol.CompareTag("Player"))
+        {
+            hurtPlayer();
         }
     }
 
@@ -62,6 +81,14 @@ public class EnemyController : MonoBehaviour
                 rb.AddForce(Mathf.Cos(randVal), 0, Mathf.Sin(randVal));
             }
         }
+
+        if (oCol.CompareTag("Player"))
+        {
+            if (coolDown <= 0)
+            {
+                hurtPlayer();
+            }
+        }
     }
     void OnTriggerExit(Collider oCol)
     {
@@ -77,5 +104,12 @@ public class EnemyController : MonoBehaviour
     void acquirePlayer()
     {
         enemyNav.target = gc.pc.transform;
+    }
+
+    void hurtPlayer()
+    {
+       // Debug.Log("Hurting Player");
+        gc.pc.adjustHealth(-damage);
+        coolDown = hitTime;
     }
 }
