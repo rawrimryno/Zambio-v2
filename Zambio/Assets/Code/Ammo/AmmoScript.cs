@@ -14,6 +14,9 @@ public class AmmoScript : MonoBehaviour
 
     NavMeshAgent meshAgent;
     NavAgentGoToTransform navAgent;
+
+    public float age=0, lifetime=4;
+
     // Called at the same time if it is in a sceneload, for all objects being loaded
     // Good to place calcs that are independent from other game objects here
     void Awake()
@@ -37,13 +40,20 @@ public class AmmoScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb.AddTorque(rb.mass * spinFactor * Vector3.up);
+        if ( lifetime <= 0)
+        {
+            lifetime = 5;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        age += Time.deltaTime;
+        if (age >= lifetime)
+        {
+            deathSequence();
+        }
     }
 
     // Interesting,
@@ -61,7 +71,7 @@ public class AmmoScript : MonoBehaviour
             if (--hitsLeft < 1)
             {
                 this.gameObject.SetActive(false);
-                Destroy(this.gameObject);
+                deathSequence();
             }
             else if (cInfo.gameObject.name == "redShell")
             {
@@ -76,5 +86,10 @@ public class AmmoScript : MonoBehaviour
     void acquireEnemy()
     {
         navAgent.target = FindObjectOfType<EnemyController>().transform;
+    }
+
+    void deathSequence()
+    {
+        Destroy(gameObject);
     }
 }
