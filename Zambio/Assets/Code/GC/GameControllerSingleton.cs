@@ -49,7 +49,7 @@ public class GameControllerSingleton : ScriptableObject
         ammoByID = new Dictionary<int, AmmoDesc>();
 
         pc = FindObjectOfType<PlayerController>();
-        myMouse = pc.GetComponent<MouseLook>();
+        myMouse = pc.GetComponentInChildren<MouseLook>();
 
 
     }
