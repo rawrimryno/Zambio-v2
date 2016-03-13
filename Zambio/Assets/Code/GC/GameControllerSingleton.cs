@@ -51,6 +51,7 @@ public class GameControllerSingleton : ScriptableObject
         pc = FindObjectOfType<PlayerController>();
         myMouse = pc.GetComponent<MouseLook>();
 
+
     }
 
     // Update is called once per frame
