@@ -26,9 +26,7 @@ public class EnemyController : MonoBehaviour
         gc = GameControllerSingleton.get();
         enemyNav = GetComponent<NavAgentGoToTransform>();
         rb = GetComponent<Rigidbody>();
-
         acquirePlayer();
-        enemyNav.enabled = false;
     }
 
     // Update is called once per frame
@@ -44,6 +42,7 @@ public class EnemyController : MonoBehaviour
         if (!init && oCol.CompareTag("Spawner"))
         {
             hasLeftSpawner = false;
+            enemyNav.enabled = false;
         }
     }
 

@@ -21,7 +21,7 @@ public class GameControllerSingleton : ScriptableObject
         get; private set;
     }
     public PlayerController pc;
-
+    MouseLook myMouse;
 
 
     // Use this for initialization
@@ -49,6 +49,7 @@ public class GameControllerSingleton : ScriptableObject
         ammoByID = new Dictionary<int, AmmoDesc>();
 
         pc = FindObjectOfType<PlayerController>();
+        myMouse = pc.GetComponent<MouseLook>();
 
     }
 
@@ -147,5 +148,20 @@ public class GameControllerSingleton : ScriptableObject
             Debug.Log("getAmmoSpriteByID failed for " + ammoID);
         }
         return rSprite;
+    }
+
+    public void Pause()
+    {
+        if (myMouse.cursorLock == CursorLockMode.None)
+        {
+            myMouse.cursorLock = CursorLockMode.Locked;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            myMouse.cursorLock = CursorLockMode.None;
+            Time.timeScale = 0f;
+        }
+
     }
 }

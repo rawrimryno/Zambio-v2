@@ -6,7 +6,7 @@ public class MouseLook : MonoBehaviour
     Vector2 _smoothMouse;
 
     public Vector2 clampInDegrees = new Vector2(360, 180);
-    CursorLockMode cursorLock;
+    public CursorLockMode cursorLock;
     //public bool lockCursor;
     public Vector2 sensitivity = new Vector2(2, 2);
     public Vector2 smoothing = new Vector2(3, 3);
@@ -58,20 +58,6 @@ public class MouseLook : MonoBehaviour
 
         SetCursorState();
 
-        if (Input.GetButtonDown("Pause"))
-        {
-            if (cursorLock == CursorLockMode.None)
-            {
-                cursorLock = CursorLockMode.Locked;
-                Time.timeScale = 1f;
-            }
-            else
-            {
-                cursorLock = CursorLockMode.None;
-                Time.timeScale = 0f;
-            }
-                
-        }
         if (cursorLock == CursorLockMode.Locked)
         {
             Cursor.lockState = cursorLock;
