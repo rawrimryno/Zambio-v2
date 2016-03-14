@@ -6,12 +6,13 @@ public class MouseLook : MonoBehaviour
     Vector2 _smoothMouse;
 
     public Vector2 clampInDegrees = new Vector2(360, 180);
-    CursorLockMode cursorLock;
+    public CursorLockMode cursorLock;
     //public bool lockCursor;
     public Vector2 sensitivity = new Vector2(2, 2);
     public Vector2 smoothing = new Vector2(3, 3);
     public Vector2 targetDirection;
     public Vector2 targetCharacterDirection;
+    private GameControllerSingleton gc;
 
     // Assign this if there's a parent object controlling motion, such as a Character Controller.
     // Yaw rotation will affect this object instead of the camera if set.
@@ -29,6 +30,7 @@ public class MouseLook : MonoBehaviour
 
         // Set target direction for the character body to its inital state.
         if (characterBody) targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
+        gc = GameControllerSingleton.get();
     }
 
     void SetCursorState()
@@ -41,37 +43,27 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        /*switch (Cursor.lockState)
+        //switch (Cursor.lockState)
+        //{
+        //    case CursorLockMode.None:
+
+        //        break;
+        //    case CursorLockMode.Locked:
+        //        Cursor.visible = false;
+        //        if (Input.GetKeyDown(KeyCode.Escape))
+        //        {
+        //            cursorLock = CursorLockMode.None;
+        //        }
+        //        break;
+
+        //}
+        if (Input.GetButtonDown("Pause"))
         {
-            case CursorLockMode.None:
-                
-                break;
-            case CursorLockMode.Locked:
-                //Cursor.visible = false;
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    cursorLock = CursorLockMode.None;
-                }
-                break;
-                
-        }*/
+            gc.Pause();
+        }
 
         SetCursorState();
 
-        if (Input.GetButtonDown("Pause"))
-        {
-            if (cursorLock == CursorLockMode.None)
-            {
-                cursorLock = CursorLockMode.Locked;
-                Time.timeScale = 1f;
-            }
-            else
-            {
-                cursorLock = CursorLockMode.None;
-                Time.timeScale = 0f;
-            }
-                
-        }
         if (cursorLock == CursorLockMode.Locked)
         {
             Cursor.lockState = cursorLock;

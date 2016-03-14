@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public TextAsset powerUpFile, ammoFile;
     public Sprite[] AmmoSpriteList;
     public Sprite[] PowerUpSpriteList;
+    public GameObject[] ammoPrefab;
+    public GameObject[] powerUpPrefab;
 
     private bool UIenabled = true;
 
@@ -27,7 +29,7 @@ public class GameController : MonoBehaviour
     {
         gc = GameControllerSingleton.get();
 
-        gc.loadTexts(powerUpFile, ammoFile, AmmoSpriteList, PowerUpSpriteList);
+        gc.loadTexts(powerUpFile, ammoFile, AmmoSpriteList, PowerUpSpriteList, ammoPrefab, powerUpPrefab);
     }
 
     // Update is called once per frame

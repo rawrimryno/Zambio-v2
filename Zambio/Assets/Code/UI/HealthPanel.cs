@@ -14,7 +14,7 @@ public class HealthPanel : MonoBehaviour
     public Image[] ammo;
 
 
-    /* Begin Todd Testing Section */
+    // For Heart change
     GameControllerSingleton gc;
 
 
@@ -24,7 +24,7 @@ public class HealthPanel : MonoBehaviour
 
     private float coolDownCur;
 
-    private bool init = false;
+    //private bool init = false;
 
     void Start()
     {

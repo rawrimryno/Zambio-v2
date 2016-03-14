@@ -21,9 +21,9 @@ public class GameControllerSingleton : ScriptableObject
         get; private set;
     }
     public PlayerController pc;
+    MouseLook myMouse;
+    public bool isPaused { get; private set; }
 
-
-    bool hasPC = false;
 
     // Use this for initialization
 
@@ -48,23 +48,16 @@ public class GameControllerSingleton : ScriptableObject
         powerUpByID = new Dictionary<int, PowerUpDesc>();
         ammoData = new Dictionary<string, AmmoDesc>();
         ammoByID = new Dictionary<int, AmmoDesc>();
-        // Do initial load up stuff
-        if (!hasPC)
-        {
-            pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            hasPC = true;
-        }
+
+        pc = FindObjectOfType<PlayerController>();
+        myMouse = pc.GetComponentInChildren<MouseLook>();
+
 
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (!hasPC)
-        {
-            pc = FindObjectOfType<PlayerController>();
-            //playerTransform = pc.gameObject.transform;
-        }
         // Debug.Log("GCS Updating");
     }
 
@@ -84,7 +77,7 @@ public class GameControllerSingleton : ScriptableObject
         }
         return rName;
     }
-    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile, Sprite[] ammoSpr, Sprite[] powerUpSpr)
+    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile, Sprite[] ammoSpr, Sprite[] powerUpSpr, GameObject[] ammoPrefab, GameObject[] powerUpPrefab) 
     {
         int i = 0, id;
         string shortName, dispName, desc;
@@ -103,8 +96,9 @@ public class GameControllerSingleton : ScriptableObject
 
             TagAdder.AddTag(shortName);
             powerUpData.Add(shortName, tempPowerUp);
-            powerUpByID.Add(tempPowerUp.ID, tempPowerUp);
-            tempPowerUp.setSprite(powerUpSpr[id]);
+            powerUpByID.Add(id, tempPowerUp);
+            tempPowerUp.setSprite(id, powerUpSpr[id]);
+            tempPowerUp.setPrefab(id, powerUpPrefab[id]);
             //Debug.Log(i);
 
         }
@@ -123,8 +117,9 @@ public class GameControllerSingleton : ScriptableObject
             //            ammoData.Add(tempAmmoDesc.sName, tempAmmoDesc);
             ammoData.Add(shortName, tempAmmoDesc);
             ammoByID.Add(i, tempAmmoDesc);
-            tempAmmoDesc.setSprite(i, ammoSpr[i++]);
-
+            tempAmmoDesc.setSprite(i, ammoSpr[i]);
+            tempAmmoDesc.setPrefab(i, ammoPrefab[i]);
+            i++;
 
             //Debug.Log("Added " + tempAmmoDesc.dName + " at index " + (i - 1));
 
@@ -132,6 +127,7 @@ public class GameControllerSingleton : ScriptableObject
         numAmmo = i;
         // Debug.Log("Tried to loadAmmo and PowerUps");
     }
+
     // Loading Sprites only at the beginning
     private Sprite getUISprite(string sName)
     {
@@ -157,5 +153,22 @@ public class GameControllerSingleton : ScriptableObject
             Debug.Log("getAmmoSpriteByID failed for " + ammoID);
         }
         return rSprite;
+    }
+
+    public void Pause()
+    {
+        if (myMouse.cursorLock == CursorLockMode.None)
+        {
+            myMouse.cursorLock = CursorLockMode.Locked;
+            Time.timeScale = 1f;
+            isPaused = false;
+        }
+        else
+        {
+            myMouse.cursorLock = CursorLockMode.None;
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
+
     }
 }

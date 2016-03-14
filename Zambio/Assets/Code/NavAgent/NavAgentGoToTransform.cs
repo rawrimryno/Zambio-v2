@@ -6,6 +6,7 @@ public class NavAgentGoToTransform : MonoBehaviour
 
     public Transform target;
     NavMeshAgent agent;
+    private float lookRatio = 1;
     // Use this for initialization
     void Start()
     {
@@ -17,8 +18,11 @@ public class NavAgentGoToTransform : MonoBehaviour
     {
         if (target != null)
         {
-            agent.SetDestination(target.position);
-            transform.LookAt(target);
+            if (Time.time % lookRatio >= 9f / 10f * lookRatio)
+            {
+                agent.SetDestination(target.position);
+                transform.LookAt(target);
+            }
         }
     }
 }
