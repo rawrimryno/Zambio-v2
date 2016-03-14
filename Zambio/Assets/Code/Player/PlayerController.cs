@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private List<PowerUp> myPowerUps;
     GameControllerSingleton gc;
 
-    private bool dead = false;
+    //private bool dead = false;
+    public int score { get; private set; }
 
 
     public Inventory myInventory
@@ -129,8 +130,15 @@ public class PlayerController : MonoBehaviour
         if (health < 1)
         {
             deathSequence();
-            dead = true;
+            //dead = true;
         }
+    }
+
+    public void adjustScore(int amt)
+    {
+        score += amt;
+        //UI.getScore();
+
     }
 
     public void adjustHealth(int amt)
@@ -142,7 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
             deathSequence();
-            dead = true;
+            //dead = true;
         }
 
     }

@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 {
     public AmmoContents ammoContents;
     public Dictionary<string, int> powerUpContents { get; private set; }
-    GameControllerSingleton gc;
+    //GameControllerSingleton gc;
     //public delegate void ProcessPowerUpDelegate(PowerUp powerUp);
 
     void Awake()
@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gc = GameControllerSingleton.get();
+        //gc = GameControllerSingleton.get();
     }
 
     // Update is called once per frame
