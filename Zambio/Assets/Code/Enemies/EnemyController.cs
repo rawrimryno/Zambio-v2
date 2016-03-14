@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public int damage;
     public float hitTime;  // time for one hit
-    private float coolDown=0;
+    private float coolDown = 0;
 
     void Awake()
     {
@@ -103,12 +103,15 @@ public class EnemyController : MonoBehaviour
 
     void acquirePlayer()
     {
-        enemyNav.target = gc.pc.transform;
+        if (enemyNav)
+        {
+            enemyNav.target = gc.pc.transform;
+        }
     }
 
     void hurtPlayer()
     {
-       // Debug.Log("Hurting Player");
+        // Debug.Log("Hurting Player");
         gc.pc.adjustHealth(-damage);
         coolDown = hitTime;
     }

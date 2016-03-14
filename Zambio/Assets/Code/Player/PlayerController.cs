@@ -140,6 +140,7 @@ public class PlayerController : MonoBehaviour
         UI.getHealth();
         if ( health < 1)
         {
+            health = 0;
             deathSequence();
             dead = true;
         }
