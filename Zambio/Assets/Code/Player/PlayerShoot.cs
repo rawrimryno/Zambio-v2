@@ -61,7 +61,7 @@ public class PlayerShoot : MonoBehaviour {
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
             rateOfFire = timer;
         }
-        else
+        else if ( rateOfFire > 0 )
         {
             rateOfFire -= Time.deltaTime;
         }

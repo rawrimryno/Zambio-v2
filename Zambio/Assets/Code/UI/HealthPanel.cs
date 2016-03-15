@@ -24,7 +24,9 @@ public class HealthPanel : MonoBehaviour
 
     private float coolDownCur;
 
-    //private bool init = false;
+    private PlayerShoot ps;
+
+    private bool init = false;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class HealthPanel : MonoBehaviour
         bullet = 1;
 
         gc = GameControllerSingleton.get();
+
         //ammoIcons = new Sprite[gc.numAmmo];
 
         //if (!init)
@@ -56,6 +59,13 @@ public class HealthPanel : MonoBehaviour
 
     void Update()
     {
+
+        //if (!init)
+        //{
+        //    ps = gc.pc.GetComponent<PlayerShoot>();
+        //    coolDownBase = ps.rateOfFire;
+        //    init = true;
+        //}
         //int i = 0;
         //if (!init)
         //{
