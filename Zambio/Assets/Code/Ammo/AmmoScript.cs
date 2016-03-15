@@ -17,15 +17,13 @@ public class AmmoScript : MonoBehaviour
 
     public float age=0, lifetime=4;
 
+    GameControllerSingleton gc;
+
     // Called at the same time if it is in a sceneload, for all objects being loaded
     // Good to place calcs that are independent from other game objects here
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        if (Math.Abs(spinFactor) <= 0)
-        {
-            spinFactor = 15f;
-        }
 
         if (this.gameObject.name == "redShell")
         {
@@ -40,6 +38,7 @@ public class AmmoScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        gc = GameControllerSingleton.get();
         if ( lifetime <= 0)
         {
             lifetime = 5;
@@ -49,6 +48,8 @@ public class AmmoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        transform.Rotate(0, spinFactor, 0);
         age += Time.deltaTime;
         if (age >= lifetime)
         {
@@ -77,7 +78,9 @@ public class AmmoScript : MonoBehaviour
             {
                 acquireEnemy();
             }
-
+            
+            // Points for now
+            gc.pc.adjustScore(10);
             cInfo.gameObject.SetActive(false);
             Destroy(cInfo.gameObject);
         }
