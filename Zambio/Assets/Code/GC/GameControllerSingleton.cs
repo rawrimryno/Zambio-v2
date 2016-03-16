@@ -21,9 +21,6 @@ public class GameControllerSingleton : ScriptableObject
         get; private set;
     }
     public PlayerController pc;
-    MouseLook myMouse;
-    public bool isPaused { get; private set; }
-
 
     // Use this for initialization
 
@@ -50,9 +47,6 @@ public class GameControllerSingleton : ScriptableObject
         ammoByID = new Dictionary<int, AmmoDesc>();
 
         pc = FindObjectOfType<PlayerController>();
-        myMouse = pc.GetComponentInChildren<MouseLook>();
-
-
     }
 
     // Update is called once per frame
@@ -77,7 +71,7 @@ public class GameControllerSingleton : ScriptableObject
         }
         return rName;
     }
-    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile, Sprite[] ammoSpr, Sprite[] powerUpSpr, GameObject[] ammoPrefab, GameObject[] powerUpPrefab) 
+    public void loadTexts(TextAsset powerUpFile, TextAsset ammoFile, Sprite[] ammoSpr, Sprite[] powerUpSpr, GameObject[] ammoPrefab, GameObject[] powerUpPrefab)
     {
         int i = 0, id;
         string shortName, dispName, desc;
@@ -94,7 +88,6 @@ public class GameControllerSingleton : ScriptableObject
             id = Convert.ToInt32(sr.ReadLine());
             tempPowerUp.setID(id);
 
-            TagAdder.AddTag(shortName);
             powerUpData.Add(shortName, tempPowerUp);
             powerUpByID.Add(id, tempPowerUp);
             tempPowerUp.setSprite(id, powerUpSpr[id]);
@@ -153,22 +146,5 @@ public class GameControllerSingleton : ScriptableObject
             Debug.Log("getAmmoSpriteByID failed for " + ammoID);
         }
         return rSprite;
-    }
-
-    public void Pause()
-    {
-        if (myMouse.cursorLock == CursorLockMode.None)
-        {
-            myMouse.cursorLock = CursorLockMode.Locked;
-            Time.timeScale = 1f;
-            isPaused = false;
-        }
-        else
-        {
-            myMouse.cursorLock = CursorLockMode.None;
-            Time.timeScale = 0f;
-            isPaused = true;
-        }
-
     }
 }

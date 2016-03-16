@@ -9,9 +9,9 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: ZeroEXP
+  companyName: DefaultCompany
   productName: Zambio
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 173ed197305791544b869d1df89a32df, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
   m_VirtualRealitySplashScreen: {fileID: 0}
@@ -330,8 +330,7 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols:
-    7: 
+  scriptingDefineSymbols: {}
   metroPackageName: Zambio
   metroPackageVersion: 
   metroCertificatePath: 

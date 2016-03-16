@@ -10429,7 +10429,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 140584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a166cf2057dff44b85be8d5f53ab107, type: 3}
+  m_Script: {fileID: 11500000, guid: c7cfa9cdd834938469ecd9cf43ae35f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11434936
@@ -10440,15 +10440,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 154446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feced073791b3ac4d94035f39ff4215a, type: 3}
+  m_Script: {fileID: 11500000, guid: 71553c467e7ca9248a7886ab5296c494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammo:
   - {fileID: 140594, guid: 20e2551ec29af7b4c96f980df5abd17a, type: 2}
-  - {fileID: 175096, guid: b408520bb816d9441b3494dc4c1da59f, type: 2}
-  - {fileID: 177750, guid: 69a4dff3604a9134f82c8c258379c533, type: 2}
-  - {fileID: 164138, guid: ce3e812fb25da9c4db0ff364606780ca, type: 2}
-  - {fileID: 178530, guid: 26a984030477d1349b0fae78bfe55213, type: 2}
+  - {fileID: 157958, guid: 5e9ff1e1ec7659042b0120d015cab740, type: 2}
+  - {fileID: 177750, guid: 3659d1f8292ae7c41852e53ee2c8ed9f, type: 2}
+  - {fileID: 164138, guid: f1775b099a69c8042b73b3e05ce9ac9a, type: 2}
+  - {fileID: 178530, guid: 1896a479b79a7b048ac4e0a140d06a23, type: 2}
   bulletSpeed: 50
   rateOfFire: 0.25
 --- !u!114 &11438374
@@ -10459,11 +10459,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 140584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11d494dbcb402bf47bc9e3a25c7febb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c055dbc70cf8d847a056f1814d0594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  jumpSpeed: 10
+  speed: 6
+  jumpSpeed: 8
   gravity: 20
 --- !u!114 &11454072
 MonoBehaviour:
@@ -10473,16 +10473,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 179988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997528a042c14b748a71422859a49010, type: 3}
+  m_Script: {fileID: 11500000, guid: 16c7e03632d4bfd4fa118ad4812df8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clampInDegrees: {x: 360, y: 180}
-  cursorLock: 0
   sensitivity: {x: 2, y: 2}
   smoothing: {x: 3, y: 3}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
-  characterBody: {fileID: 140584}
+  characterBody: {fileID: 0}
 --- !u!114 &11490256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10491,7 +10490,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 140584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441e8aed879260c4da1332048f106169, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ea4712b3cfcb7943a802ecbbd69719d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!124 &12445014

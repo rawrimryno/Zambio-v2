@@ -27,8 +27,9 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         SceneManager.LoadScene("UI", LoadSceneMode.Additive);
-        health = 20;
         gc = GameControllerSingleton.get();
+        health = 20;
+        score = 0;
     }
     // Use this for initialization
     void Start()
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour
     public void adjustScore(int amt)
     {
         score += amt;
-        //UI.getScore();
+        UI.getScore();
 
     }
 
@@ -156,8 +157,9 @@ public class PlayerController : MonoBehaviour
     }
     void deathSequence()
     {
+        Debug.Log("GAME OVER");
         //Game Over
-        gc.Pause();
+        //gc.Pause();
         //SceneManager.UnloadScene("UI");
         //SceneManager.UnloadScene("Level One");
         //SceneManager.LoadScene("Level One");

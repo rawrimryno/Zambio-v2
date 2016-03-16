@@ -38,8 +38,8 @@ public class Environment : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        initSunRotation = Quaternion.Euler(Vector3.zero);
-        finalSunRotation = Quaternion.Euler(new Vector3(359.9f, 0f, 0f));
+        initSunRotation = Quaternion.Euler(0f,60f,0f);
+        finalSunRotation = Quaternion.Euler(new Vector3(359.9f, 60f, 0f));
 
         SunRotationAxis = initSunRotation * Vector3.right;
         Sun = GetComponentInChildren<Light>();
@@ -47,7 +47,7 @@ public class Environment : MonoBehaviour
 
         if (DayLength == 0)
         {
-            DayLength = 20;
+            DayLength = 120;
         }
     }
 
