@@ -78,7 +78,7 @@ public class AmmoScript : MonoBehaviour
             {
                 acquireEnemy();
             }
-            
+
             // Points for now
             gc.pc.adjustScore(10);
             cInfo.gameObject.SetActive(false);

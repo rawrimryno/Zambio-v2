@@ -11,10 +11,12 @@ public class HealthPanel : MonoBehaviour
     public Image[] hearts;
     public Sprite[] heartIcons;
     public int health;
+    public int score;
+    public Text scoreTXT;
     public Image[] ammo;
 
 
-    // For Heart change
+    // For Heart Change
     GameControllerSingleton gc;
 
 
@@ -32,6 +34,7 @@ public class HealthPanel : MonoBehaviour
         changeAmmo(1);
         coolDownCur = 0.5f; // Zach's original
         bullet = 1;
+        score = 0;
 
         gc = GameControllerSingleton.get();
         //ammoIcons = new Sprite[gc.numAmmo];
@@ -74,7 +77,7 @@ public class HealthPanel : MonoBehaviour
             coolDown();
         }
 
-        /* 
+        //Debug Code 
         if (Input.GetKeyDown("z"))
         {
             health--;
@@ -85,16 +88,7 @@ public class HealthPanel : MonoBehaviour
             health++;
             setHearts();
         }
-
-        if (Input.GetKeyDown("c"))
-        {
-            changeAmmo(--bullet);
-        }
-        if (Input.GetKeyDown("v"))
-        {
-            changeAmmo(++bullet);
-        }
-        */
+        
     }
 
     public void coolDown()
@@ -120,6 +114,18 @@ public class HealthPanel : MonoBehaviour
         {
             CancelInvoke("coolDownScaler");
         }
+    }
+
+    public void getScore()
+    {
+        score = gc.pc.score;
+        setScore();
+        //Debug.Log("ScorePanel is Getting Score " + score);
+    }
+
+    public void setScore()
+    {
+        scoreTXT.text = "Score: " + score;
     }
 
     public void getHealth()

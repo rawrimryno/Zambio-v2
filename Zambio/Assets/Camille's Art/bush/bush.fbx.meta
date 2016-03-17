@@ -324,19 +324,6 @@ ModelImporter:
     4300020: pasted__pasted__pSphere3
     4300022: pasted__pasted__pSphere3
     4300024: pasted__pasted__pSphere3
-    6400000: group_pasted__pSphere1
-    6400002: pasted__pasted__pSphere3
-    6400004: pasted__pasted__pSphere3 1
-    6400006: pasted__pasted__pSphere3 2
-    6400008: pasted__pasted__pSphere3 3
-    6400010: pasted__pasted__pSphere3 4
-    6400012: pasted__pSphere3
-    6400014: pasted__pSphere3 1
-    6400016: pasted__pSphere3 2
-    6400018: pasted__pSphere3 3
-    6400020: pasted__pSphere3 4
-    6400022: pasted__pSphere3 5
-    6400024: pSphere3
   materials:
     importMaterials: 1
     materialName: 0
@@ -361,11 +348,11 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 60
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
-    swapUVChannels: 1
+    swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1

@@ -52,7 +52,7 @@ public class PlayerShoot : MonoBehaviour {
         }
 
         ammoNum = UI.bullet-1;
-        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && !gc.isPaused)
+        if (Input.GetButtonDown("Fire1") && rateOfFire <= 0 && Time.timeScale != 0f)
         {
             Rigidbody clone;
             projectile = ammo[ammoNum].GetComponent<Rigidbody>();
@@ -61,7 +61,7 @@ public class PlayerShoot : MonoBehaviour {
             clone.velocity = transform.TransformDirection((Vector3.forward) * bulletSpeed);
             rateOfFire = timer;
         }
-        else
+        else if (rateOfFire > 0)
         {
             rateOfFire -= Time.deltaTime;
         }

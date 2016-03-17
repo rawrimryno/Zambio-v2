@@ -10,6 +10,8 @@ public class Compass : MonoBehaviour {
 	}
 	
 	void Update () {
-	
-	}
+
+        
+
+    }
 }

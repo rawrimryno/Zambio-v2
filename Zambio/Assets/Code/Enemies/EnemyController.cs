@@ -105,13 +105,13 @@ public class EnemyController : MonoBehaviour
     {
         if (enemyNav)
         {
-            enemyNav.target = gc.pc.transform;
+            enemyNav.target = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 
     void hurtPlayer()
     {
-        // Debug.Log("Hurting Player");
+       // Debug.Log("Hurting Player");
         gc.pc.adjustHealth(-damage);
         coolDown = hitTime;
     }

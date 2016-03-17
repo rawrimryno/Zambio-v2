@@ -6,13 +6,12 @@ public class MouseLook : MonoBehaviour
     Vector2 _smoothMouse;
 
     public Vector2 clampInDegrees = new Vector2(360, 180);
-    public CursorLockMode cursorLock;
+    CursorLockMode cursorLock;
     //public bool lockCursor;
     public Vector2 sensitivity = new Vector2(2, 2);
     public Vector2 smoothing = new Vector2(3, 3);
     public Vector2 targetDirection;
     public Vector2 targetCharacterDirection;
-    private GameControllerSingleton gc;
 
     // Assign this if there's a parent object controlling motion, such as a Character Controller.
     // Yaw rotation will affect this object instead of the camera if set.
@@ -20,7 +19,7 @@ public class MouseLook : MonoBehaviour
 
     void Awake()
     {
-        cursorLock = CursorLockMode.Locked;
+        
     }
 
     void Start()
@@ -30,43 +29,13 @@ public class MouseLook : MonoBehaviour
 
         // Set target direction for the character body to its inital state.
         if (characterBody) targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
-        gc = GameControllerSingleton.get();
-    }
-
-    void SetCursorState()
-    {
-        Cursor.lockState = cursorLock;
-        //hide cursor when locked
-        Cursor.visible = (CursorLockMode.Locked != cursorLock);
     }
 
 
     void Update()
     {
-        //switch (Cursor.lockState)
-        //{
-        //    case CursorLockMode.None:
-
-        //        break;
-        //    case CursorLockMode.Locked:
-        //        Cursor.visible = false;
-        //        if (Input.GetKeyDown(KeyCode.Escape))
-        //        {
-        //            cursorLock = CursorLockMode.None;
-        //        }
-        //        break;
-
-        //}
-        if (Input.GetButtonDown("Pause"))
+        if (Time.timeScale == 1f)
         {
-            gc.Pause();
-        }
-
-        SetCursorState();
-
-        if (cursorLock == CursorLockMode.Locked)
-        {
-            Cursor.lockState = cursorLock;
             // Allow the script to clamp based on a desired target value.
             var targetOrientation = Quaternion.Euler(targetDirection);
             var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
