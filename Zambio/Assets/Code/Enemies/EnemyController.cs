@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     private bool init = false;
     private float yDisp = 0;
 
+    private bool hasPlayer = false;
+
     public float pipeHeight = 5;
 
     public int damage;
@@ -37,7 +39,10 @@ public class EnemyController : MonoBehaviour
         gc = GameControllerSingleton.get();
         enemyNav = GetComponent<NavAgentGoToTransform>();
         rb = GetComponent<Rigidbody>();
-        acquirePlayer();
+        if (gc.init)
+        {
+            acquirePlayer();
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +51,10 @@ public class EnemyController : MonoBehaviour
         if (coolDown > 0)
         {
             coolDown -= Time.deltaTime;
+        }
+        if (!hasPlayer && gc.init)
+        {
+            acquirePlayer();
         }
 
 
@@ -103,9 +112,10 @@ public class EnemyController : MonoBehaviour
 
     void acquirePlayer()
     {
-        if (enemyNav)
+        if ( enemyNav)
         {
             enemyNav.target = gc.pc.transform;
+            hasPlayer = true;
         }
     }
 

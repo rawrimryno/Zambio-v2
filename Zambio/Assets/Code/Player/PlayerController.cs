@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             UI.changeAmmo(1);
             hpDisplay.setTextToAmmoName();
+            deathSequence();
         }
         if (Input.GetKeyDown("2"))
         {
@@ -157,8 +158,11 @@ public class PlayerController : MonoBehaviour
     void deathSequence()
     {
         //Game Over
-        gc.Pause();
-        //SceneManager.UnloadScene("UI");
+        gc.init = false;
+        SceneManager.UnloadScene("UI");
+        SceneManager.UnloadScene("Level One");
+        SceneManager.LoadScene("Level One");
+        gc.initialize();
         //SceneManager.UnloadScene("Level One");
         //SceneManager.LoadScene("Level One");
     }
